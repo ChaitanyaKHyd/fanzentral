@@ -1,0 +1,559 @@
+body {
+	line-height: 17px;
+  	font-family: 'Ubuntu', sans-serif;
+  	background-color: #E6EAE8;
+}
+
+.top_bar{
+	width: 100%;
+	height: 40px;
+	background-color: #000000;
+	margin: 0 0 10px 0;
+	display: inline-flex;
+	position: fixed;
+	z-index: 10;
+}
+
+.logo a{
+	margin-left: 10px;
+	font-size: 150%;
+	position: relative;
+	top: 15px;
+	font-family: 'Fjalla One', sans-serif;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+nav{
+	float: right;
+	margin: 15px;
+	position: absolute;
+	right: 1px;
+	margin: 10px;
+}
+
+nav a{
+	position: relative;
+	color: #ffffff;
+	text-decoration: none;
+	margin: 5px 10px;
+}
+
+nav a:hover{
+	color: #FFFFFF;
+}
+
+.wrapper{
+	margin: 0 auto;
+	top: 50px;
+	position: relative;
+	padding: 0 10px;
+	width:75%;
+	min-width: 950px;
+}
+
+.column{
+	background-color: #fff;
+	padding: 10px;
+	border: 1px solid #D3D3D3;
+	border-radius: 5px;
+	box-shadow: 2px 2px 1px #D3D3D3;
+	z-index: -1;
+}
+
+.user_details{
+	width: 265px;
+	float: left;
+	margin-bottom: 20px;
+}
+
+.user_details_left_right{
+	width: 120px;
+	display: inline-block;
+	position: absolute;
+}
+
+.user_details img{
+	height:125px;
+	border-radius: 5px;
+	margin-right: 5px;
+}
+
+.main_column {
+	float: left;
+    margin-left: 10px;
+    width: 60%;
+    z-index: -1;
+    min-height: 170px;
+}
+
+.post_form{
+	width: 100%;
+}
+
+.post_form textarea{
+	width:80%;
+	height: 60px;
+	border-radius: 5px;
+	margin-right: 5px;
+	border: 1px solid #D3D3D3;
+}
+
+textarea:focus {
+	outline: 0;
+}
+
+.post_form input[type="submit"]{
+	width: 10%;
+	height: 60px;
+	border: none;
+	border-radius: 5px;
+	background-color: #000000;
+	color: #ffffff;
+	position: absolute;
+	outline: 0;
+	margin: 0;
+}
+
+.post_form input[type="submit"]:active{
+	padding: 5px 4px 4px 5px;
+}
+
+.status_post{
+	width: 96%;
+	font-size: 15px;
+    padding: 0px 5px;
+    min-height:75px;
+    cursor:pointer;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.main_trivia_column {
+    margin: 0 auto;
+    width: 60%;
+    z-index: -1;
+    min-height: 80px;
+}
+
+.trivia_topic_create{
+	width: 100%;
+    padding: 12px 10px;
+  	margin: 8px 0;
+  	display: inline-block;
+  	border: 1px solid #ccc;
+  	border-radius: 4px;
+}
+
+.post_profile_pic{
+	float: left;
+	margin-right: 7px;
+}
+
+.post_profile_pic img{
+	border-radius: 5px;
+}
+
+#comment_iframe{
+	max-height: 250px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.comment_section{
+	padding: 0 5px 5px 5px;
+}
+
+.comment_section img{
+	margin: 0 3px 3px 3px;
+	border-radius: 3px;
+}
+
+#comment_form textarea{
+	border-color:#D3D3D3;
+	width: 82%;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 3px 3px 3px 5px;
+}
+
+#comment_form input[type="submit"]{
+	border:none;
+	background-color: #000;
+	color: #ffffff;
+	border-radius: 5px;
+	width:15%;
+	height:35px;
+	margin-top: 3px;
+	position: absolute;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.newsfeedPostOptions{
+	padding: 0px;
+	text-decoration: none;
+	border:none;
+	color:#007bff;
+}
+
+.profile_left {
+	top: -10px;
+	width: 20%;
+	max-width: 240px;
+	min-width: 130px;
+	height: 100%;
+	float: left;
+	position: relative;
+	background-color: #000;
+	border-right: 10px solid #D3D3D3;
+	color: #ffffff;
+	margin-right: 20px;
+}
+
+.profile_left img {
+	min-width: 80px;
+	width: 55%;
+	margin: 20px;
+	border: 5px solid #D3D3D3;
+	border-radius: 100px;
+}
+
+.profile_info {
+	background-color: #ffffff;
+	color: #000000;
+	width: 100%;
+	padding: 10px 0 10px 0;
+}
+
+.profile_info p {
+	margin: 0 0 0 20px;
+	word-wrap: break-word;
+}
+
+.danger {
+	background-color: #e74c3c;
+}
+.warning {
+	background-color: #f0ad4e;
+}
+.default {
+	background-color: #bdc3c7;
+}
+.success {
+	background-color: #2ecc71;
+}
+
+.deep_blue {
+	background-color: #0043f0;
+}
+
+.profile_left input[type="submit"] {
+	width: 90%;
+	height: 30px;
+	border-radius: 5px;
+	margin: 7px 0 0 7px;
+	border: none;
+	color: #fff;
+}
+
+#accept_button {
+	width: 20%;
+	height: 28px;
+	border-radius: 5px;
+	margin: 5px;
+	border: none;
+	color: #fff;
+	background-color: #2ecc71;
+}
+#ignore_button {
+	width: 20%;
+	height: 28px;
+	border-radius: 5px;
+	margin: 5px;
+	border: none;
+	color: #fff;
+	background-color: #e74c3c;
+}
+
+.delete_button {
+	height: 22px;
+	width: 22px;
+	padding: 0;
+	float: right;
+	border-radius: 4px;
+	right: -15px;
+	position: relative;
+}
+
+.profile_main_column {
+    margin-left: 10px;
+    min-height: 170px;
+	min-width: 675px;
+	float: left;
+	width: 70%;
+	z-index: -1;
+
+}
+
+.profile_info_bottom {
+	color: #ffffff;
+	margin: 20px 0 0 20px;
+
+}
+
+.profile_newsfeed{
+	font-size: 150%;
+	padding: 1px 1px 10px 5px;
+}
+
+#message_textarea{
+	width: 80%;
+    margin-right: 8px;
+    border-radius: 5px;
+}
+
+#message_submit{
+	height: 40px;
+	width: 100px;
+	margin:0;
+	position:absolute;
+	border: none;
+	color: #fff;
+	background-color: #000000;
+	border-radius: 5px;
+}
+
+.message{
+	border: 1px solid #000;
+	border-radius: 5px;
+	padding: 5px 10px;
+	display: inline-block;
+	color: #fff;
+}
+
+.message#blue{
+	background-color: #3498db;
+	float: right;
+	margin-bottom: 5px;
+}
+
+.message#green{
+	background-color: #2ecc71;
+	float: left;
+	margin-bottom: 5px;
+}
+
+.loaded_messages{
+	height: 65%;
+	min-height: 300px;
+	max-height: 400px;
+	overflow: auto;
+	margin-bottom: 10px;
+}
+
+.loaded_conversations{
+	max-height: 220px;
+	overflow: auto;
+}
+
+.user_found_messages{
+	border-bottom: 1px solid #D3D3D3;
+	padding: 8px 8px 10px 8px; 
+}
+
+.user_found_messages:hover{
+	background-color: #D3D3D3;
+}
+
+.user_found_messages img{
+	height: 35px;
+	float:left;
+}
+
+#grey{
+	color: #8C8C8C;
+}
+
+.resultDisplay{
+	padding: 5px 5px 0 5px;
+	height: 70px;
+	border-bottom: 1px solid #D3D3D3; 
+}
+
+.resultDisplay a{
+	float:none;
+}
+
+.resultDisplay:hover{
+	background-color: #EBEBEB;
+	text-decoration: none;
+}
+
+.liveSearchProfilePic img{
+	height: 50px;
+	border-radius: 25px;
+	margin: 1px 12px 0 2px;
+	float: left;
+}
+
+.liveSearchText p{
+	margin-left: 10px;
+	font-size: 12px;
+}
+
+.dropdown_data_window{
+	background-color: #fff;
+    border: 1px solid #DADADA;
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    overflow: auto;
+}
+
+.notification_badge{
+	padding: 3px 7px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	background-color: #F00;
+	border-radius: 10px;
+	position: absolute;
+	left: 8px;
+	top: -5px;
+}
+
+.resultDisplayNotification{
+	height: auto;
+    color: #1485BD;
+    padding-bottom: 7px;
+}
+
+.resultDisplayNotification img{
+	height: 40px;
+	border-radius: 5px;
+	margin:1px 2px 0px 2px;
+	float:left;
+}
+
+.timestamp_smaller{
+	font-size: 85%;
+	margin:0;
+}
+
+.search{
+	margin: 8px 0 0 10%;
+}
+
+.search #search_test_input{
+	border: thin solid #E5E5E5;
+	float: left;
+	height: 23px;
+	outline: 0;
+	width: 100px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.button_holder{
+	background-color: #F1F1F1;
+  	border: thin solid #e5e5e5;
+  	cursor: pointer;
+  	float: right;
+  	height: 23px;
+  	text-align: center;
+  	width: 50px;
+  	border-top-right-radius: 3px;
+  	border-bottom-right-radius: 3px;
+}
+
+.button_holder img {
+	margin-top: 1px;
+    width: 20px;
+}
+
+.search_results {
+	background-color: #fff;
+    border: 1px solid #DADADA;
+    border-bottom: none;
+    border-top: none;
+    margin-top: 21px;
+}
+
+.search_results_footer{
+	padding: 7px 4px 0px 4px;
+    height: 30px;
+    border: 1px solid #DADADA;
+    border-top: none;
+    background-color: #000000;
+    text-align: center;
+}
+
+.search_results_footer a {
+	color: #fff;
+}
+
+.search_result {
+	padding: 10px;
+    height: 100px;
+}
+
+.searchPageFriendButtons {
+	float: right;
+}
+
+.searchPageFriendButtons input[type="submit"] {
+	border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.result_profile_pic {
+	float: left;
+    margin-right: 10px;
+}
+
+#search_hr {
+	margin-bottom: 0px;
+}
+
+.small_profile_pic {
+	height: 55px;
+    margin: 1px 12px 0 2px;
+    float: left;
+}
+
+label{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    width: 320px;
+    margin-bottom: 0px;
+}
+
+#settings_input {
+	border: 1px solid #ccc;
+    height: 20px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.settings_submit {
+	border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    color: #fff;
+    margin: 0 auto;
+    display:block;
+}
