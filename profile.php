@@ -2,8 +2,6 @@
 include("includes/header.php");
 include("includes/classes/Feed.php");
 
-$message_obj = new Message($con, $userLoggedIn);
-
 if(isset($_GET['profile_username'])){
 	$username = $_GET['profile_username'];
 	$user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
@@ -55,8 +53,8 @@ if(isset($_POST['post_message'])){
 
     	<div class="profile_info">
     		<p><?php echo "Posts: ".$user_array['num_posts']; ?></p>
-    		<p><?php echo "Upvotes: ".$user_array['num_likes']; ?></p>
-    		<p><?php echo "Downvotes: ".$user_array['num_dislikes']; ?></p>
+    		<p><?php echo "Upvotes: ".$user_array['num_upvotes']; ?></p>
+    		<p><?php echo "Downvotes: ".$user_array['num_downvotes']; ?></p>
     		<p><?php echo "Friends: ".$num_friends; ?></p>
     	</div>
     	

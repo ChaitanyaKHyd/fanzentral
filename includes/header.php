@@ -69,7 +69,7 @@ else{
         $notifications = new Notification($con, $userLoggedIn);
         $num_notifications = $notifications->getUnreadNumber();
 
-        //Unread notifications
+        //Unread friend requests
         $user_obj = new User($con, $userLoggedIn);
         $num_requests = $user_obj->getNumberofFriendRequests();
 

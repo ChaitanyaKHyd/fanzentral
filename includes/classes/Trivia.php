@@ -1,15 +1,14 @@
 <?php 
 class Trivia{
-	private $topic;
+	private $user_obj;
 	private $con;
 
-	public function __construct($con,$topic){
+	public function __construct($con,$user){
 		$this->con = $con;
-		$this->topic = $topic;
+		$this->user_obj = new User($con, $user);
 	}
 
-	public function submitTrivia($body, $trivia_topic){
-		$trivia_topic = $trivia_topic;
+	public function submitTrivia($body, $trivia_topic, $trivia_topic_id){
 		$body = strip_tags($body); //remove html tags
 		$body = mysqli_real_escape_string($this->con, $body);
 		$check_empty = preg_replace('/\s+/', '', $body); //Deletes all spaces
@@ -24,10 +23,9 @@ class Trivia{
 			//Initializing upvotes and downvotes
 			$upvotes = 0;
 			$downvotes = 0;
-
+			
 			//insert trivia
-			$query = mysqli_query($this->con, "INSERT INTO trivia VALUES('','$trivia_topic', '$body', '$added_by', '$upvotes', '$downvotes', '$date_added', 'no')");
-			$returned_id = mysqli_insert_id($this->con);
+			$query = mysqli_query($this->con, "INSERT INTO trivia VALUES('', '$trivia_topic', '$trivia_topic_id', '$body', '$added_by', '$upvotes', '$downvotes', '$date_added', 'no')");
 
 			//Update post count for user 
 			$num_posts = $this->user_obj->getNumPosts();
@@ -58,19 +56,10 @@ class Trivia{
 
 			while($row = mysqli_fetch_array($data_query)){
 				$id = $row['id'];
+				$trivia_topic = $row['trivia_topic'];
 				$body = $row['body'];
 				$added_by = $row['added_by'];
-				$date_time = $row['date_added'];
-
-				//prepare user_to string so it can be included even if not posted to a user
-				if($row['user_to'] == "none"){
-					$user_to = "";
-				}
-				else {
-					$user_to_obj = new User($this->con, $row['user_to']);
-					$user_to_name = $user_to_obj->getFirstAndLastName();
-					$user_to = "to <a href='".$row['user_to']."'>".$user_to_name."</a>";
-				}
+				$date_time = $row['date'];
 
 				//Check if user who posted, has the account closed
 				$added_by_obj = new User($this->con, $added_by);
@@ -101,24 +90,6 @@ class Trivia{
 				$first_name = $user_row['first_name'];
 				$last_name = $user_row['last_name'];
 				$profile_pic = $user_row['profile_pic'];
-
-				?>
-				<script>
-					function toggle<?php echo $id; ?>(){
-
-						var target = $(event.target);
-						if(!target.is("a")){
-							var element = document.getElementById("toggleComment<?php echo $id;?>");
-
-						if(element.style.display == "block")
-							element.style.display = "none";
-						else
-							element.style.display = "block";
-						}
-					}
-				</script>
-
-				<?php
 
 				$comments_check = mysqli_query($this->con, "SELECT * FROM comments WHERE post_id='$id'");
 				$comments_check_num = mysqli_num_rows($comments_check);
@@ -190,7 +161,7 @@ class Trivia{
 								<img src='$profile_pic' width='50'>
 							</div>
 							<div class='posted_by' style='color:#000000 ;'>
-								<a href='$added_by'>$first_name $last_name</a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+								<a href='$added_by'>$first_name $last_name</a>&nbsp;&nbsp;&nbsp;&nbsp;$time_message
 								$delete_button
 							</div>
 							<div id='post_body'>
@@ -199,14 +170,6 @@ class Trivia{
 								<br>
 								<br>
 							</div>
-
-							<div class='newsfeedPostOptions'>
-								Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
-							</div>
-
-						</div>
-						<div class='post_comment' id='toggleComment$id' style='display:none;'>
-							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
 						</div>
 						<hr>";
 					}

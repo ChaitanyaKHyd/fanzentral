@@ -145,9 +145,6 @@ class Notification {
 			case'comment':
 				$message = $userLoggedInName." commented on your post";
 				break;
-			case'like':
-				$message = $userLoggedInName." liked on your post";
-				break;
 			case'profile_post':
 				$message = $userLoggedInName." posted on your profile";
 				break;
@@ -157,7 +154,13 @@ class Notification {
 			case'profile_comment':
 				$message = $userLoggedInName." commented on your profile post";
 				break;
-		}
+			case'upvote':
+				$message = $userLoggedInName." upvoted on your trivia post";
+				break;
+			case'downvote':
+				$message = $userLoggedInName." downvoted on your trivia post";
+				break;
+		}		
 
 		$link = "post.php?id=".$post_id;
 

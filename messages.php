@@ -38,8 +38,8 @@ if(isset($_POST['post_message'])) {
             </a>
             <br>
             <?php echo "Posts: " . $user['num_posts']. "<br>"; 
-            echo "Likes: " . $user['num_likes'];
-
+            echo "Likes: " . $user['num_likes']."<br>";
+            echo "Downvotes: ".$user['num_dislikes'];
             ?>
         </div>
     </div>

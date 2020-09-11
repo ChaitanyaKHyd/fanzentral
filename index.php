@@ -18,8 +18,8 @@ if(isset($_POST['post'])){
              </a>
              <br>
              <?php echo "Posts: ".$user['num_posts']."<br>";
-             echo "Upvotes: ".$user['num_likes']."<br>";
-             echo "Downvotes: ".$user['num_dislikes']; ?>
+             echo "Upvotes: ".$user['num_upvotes']."<br>";
+             echo "Downvotes: ".$user['num_downvotes']; ?>
          </div>
     </div>
     <div class="main_column column">

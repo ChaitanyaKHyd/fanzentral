@@ -1,32 +1,73 @@
 <?php   
-include("includes/header.php"); 
+include("includes/header.php");
+include("includes/classes/Trivia_topic.php"); 
 
 if(isset($_POST['post'])){
-    $topic = new Trivia_topic($con, $userLoggedIn);
-    $post->submitFeed($_POST['post_text'], 'none');
+    $topic = new Trivia_topic($con);
+    $topic->submitTriviaTopic($_POST['trivia_topic_create'], $_POST['trivia_topic_description']);
 }
 ?>
-		<div class="container">
-			<div class="main_trivia_column column">
-	        <form class="post_form" action="trivia_topics.php" method="POST">
-	        	<input type="text" class="trivia_topic_create" name="trivia_topic_create" placeholder="Trivia Topic" required>
-	            <textarea name="post_text" id="post_text" placeholder="Give a description of trivia topic" required></textarea>
-	            <input type="submit" name="post" id="post_button" value="Create"></input>
-	            <hr>
-	        </form>
-        <div class ="trivia_topics_area"></div>
-        	<img id="loading" src="assets/images/icons/loading.gif" style="display: block; margin: auto;">
-		</div>
-		</div>
-		<div class="container">                  
-			<ul class="pagination justify-content-center">
-				<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">Next</a></li>
-			</ul>
-		</div>
-	</div>	
+	<div class="container">
+		<div class="main_trivia_column column">
+        <form class="post_form" action="trivia_topics.php" method="POST">
+        	<input type="text" name="trivia_topic_create" placeholder="Trivia Topic" required>
+            <textarea name="trivia_topic_description"  placeholder="Give a description of trivia topic"></textarea>
+            <input type="submit" name="post" id="post_button" value="Create"></input>
+            <hr>
+        </form>
+    	</div>
+    <div class ="trivia_topics_area row"></div>
+    	<img id="loading" src="assets/images/icons/loading.gif" style="display: block; margin: auto;">
+
+	<script>
+        $(document).ready(function() {
+            $('#loading').show();
+
+            //Original ajax request for loading first posts
+
+            $.ajax({
+                url:"includes/handlers/ajax_load_trivia_topics.php",
+                type:"POST",
+                data:"page=1&userLoggedIn="+userLoggedIn,
+                cache:false,
+
+                success: function(data){
+                    $('#loading').hide();
+                    $('.trivia_topics_area').html(data);
+                }
+            });
+
+            $(window).scroll(function(){
+                var height = $('.trivia_topics_area').height();
+                var scroll_top = $(this).scrollTop();
+                var page = $('.trivia_topics_area').find('.nextPage').val();
+                var noMorePosts = $('.trivia_topics_area').find('.noMorePosts').val();
+
+                if ((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false'){
+                    $('#loading').show();
+
+                var ajaxReq = $.ajax({
+                url:"includes/handlers/ajax_load_trivia_topics.php",
+                type:"POST",
+                data:"page="+page+"&userLoggedIn="+userLoggedIn,
+                cache:false,
+
+                success: function(response){
+                    $('.trivia_topics_area').find('.nextPage').remove();
+                    $('.trivia_topics_area').find('.noMorePosts').remove();
+
+                    $('#loading').hide();
+                    $('.trivia_topics_area').append(response);
+                }
+            });
+
+
+            }
+            return false;
+            });
+        });
+    </script>
+</div>
 	</body>
 </html>
+
