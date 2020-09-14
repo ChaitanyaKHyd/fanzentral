@@ -22,6 +22,24 @@ if(isset($_POST['post'])){
              echo "Downvotes: ".$user['num_downvotes']; ?>
          </div>
     </div>
+    <div class="trivia_topics column">
+         <a href="trivia_topics.php">Trivia Topics</a>
+         <hr>
+         <?php 
+         $query = mysqli_query($con, "SELECT topic FROM trivia_topics ORDER BY topic LIMIT 10");
+
+         foreach($query as $row){
+            $topic = $row['topic'];
+            $topic_dot = strlen($topic) >= 28 ? "..." : "";
+
+            $trimmed_topic =  str_split($topic, 28);
+            $trimmed_topic = $trimmed_topic[0];
+
+            echo "<a href='trivia_page.php'>$trimmed_topic".$topic_dot."</a><br><br>";
+         }
+
+         ?>
+    </div>
     <div class="main_column column">
         <form class="post_form" action="index.php" method="POST">
             <textarea name="post_text" id="post_text" placeholder="Post something"></textarea>

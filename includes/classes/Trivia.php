@@ -8,7 +8,7 @@ class Trivia{
 		$this->user_obj = new User($con, $user);
 	}
 
-	public function submitTrivia($body, $trivia_topic, $trivia_topic_id){
+	public function submitTrivia($body){
 		$body = strip_tags($body); //remove html tags
 		$body = mysqli_real_escape_string($this->con, $body);
 		$check_empty = preg_replace('/\s+/', '', $body); //Deletes all spaces
@@ -25,7 +25,7 @@ class Trivia{
 			$downvotes = 0;
 			
 			//insert trivia
-			$query = mysqli_query($this->con, "INSERT INTO trivia VALUES('', '$trivia_topic', '$trivia_topic_id', '$body', '$added_by', '$upvotes', '$downvotes', '$date_added', 'no')");
+			$query = mysqli_query($this->con, "INSERT INTO trivia VALUES('', '$body', '$added_by', '$upvotes', '$downvotes', '$date_added', 'no')");
 
 			//Update post count for user 
 			$num_posts = $this->user_obj->getNumPosts();

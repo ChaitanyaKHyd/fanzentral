@@ -48,7 +48,7 @@ class Message {
 			$user_from = $row['user_from'];
 			$body = $row['body'];
 
-			$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='green'>" : "<div class='message' id='blue'>";
+			$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='white'>" : "<div class='message' id='blue'>";
 			$data = $data . $div_top . $body . "</div><br><br>";
 		}
 		return $data;

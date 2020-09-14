@@ -4,13 +4,28 @@ include("includes/classes/Trivia_topic.php");
 
 if(isset($_POST['post'])){
     $topic = new Trivia_topic($con);
-    $topic->submitTriviaTopic($_POST['trivia_topic_create'], $_POST['trivia_topic_description']);
+    $topic->submitTriviaTopic($_POST['trivia_topic_create'], $_POST['trivia_topic_description'], $_POST['category']);
 }
 ?>
 	<div class="container">
 		<div class="main_trivia_column column">
         <form class="post_form" action="trivia_topics.php" method="POST">
         	<input type="text" name="trivia_topic_create" placeholder="Trivia Topic" required>
+            <select name="category">
+                <option selected="selected">Choose one</option>
+                <?php
+                // A sample product array
+                $products = array("Films", "Sports", "Lifestyle", "Automobiles", "Culture", "Business", "Politics", "Science", "Books");
+                
+                // Iterating through the product array
+                foreach($products as $item){
+                ?>
+                <option value="<?php echo strtolower($item); ?>"><?php echo $item; ?></option>
+                <?php
+                }
+                ?>
+            </select>
+            <br><br>
             <textarea name="trivia_topic_description"  placeholder="Give a description of trivia topic"></textarea>
             <input type="submit" name="post" id="post_button" value="Create"></input>
             <hr>

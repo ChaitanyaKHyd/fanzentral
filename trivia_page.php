@@ -2,16 +2,9 @@
 include("includes/header.php"); 
 include("includes/classes/Trivia.php");
 
-if(isset($_GET['topic'])){
-    $trivia_topic = $_GET['topic'];
-    $id_query = mysqli_query($con, "SELECT id FROM trivia_topics WHERE topic='$trivia_topic'");
-    $id_query = mysqli_fetch_array($id_query);
-    $id = $id_query['id'];
-}
-
 if(isset($_POST['trivia_post'])){
     $trivia = new Trivia($con, $userLoggedIn);
-    $trivia->submitTrivia($_POST['trivia_text'], $trivia_topic, $id);
+    $trivia->submitTrivia($_POST['trivia_text']);
 }
 
  ?>

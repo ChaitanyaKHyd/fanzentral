@@ -101,7 +101,6 @@ if($count!=0){
 		$removed = $comment['removed'];
 
 		//Timeframe
-
 		$date_time_now = date("Y-m-d H:i:s");
 		$start_date =  new DateTime($date_added);//Time of post
 		$end_date = new DateTime($date_time_now);//Current time

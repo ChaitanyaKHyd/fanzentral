@@ -6,7 +6,7 @@ class Trivia_topic{
 		$this->con = $con;
 	}
 
-	public function submitTriviaTopic($trivia_topic, $topic_description){
+	public function submitTriviaTopic($trivia_topic, $topic_description, $topic_category){
 		$topic = $trivia_topic;
 		$topic = strip_tags($topic); //remove html tags
 		$topic = mysqli_real_escape_string($this->con, $topic);
@@ -17,9 +17,10 @@ class Trivia_topic{
 			$description = $topic_description;
 			$description = strip_tags($description); //remove html tags
 			$description = mysqli_real_escape_string($this->con, $description);
+			$category = $topic_category;
 
 			//insert trivia topic
-			$query = mysqli_query($this->con, "INSERT INTO trivia_topics VALUES('','$topic', '$description', 'no')");
+			$query = mysqli_query($this->con, "INSERT INTO trivia_topics VALUES('','$topic', '$category', '$description', 'no')"); 
 		}
 	}
 
@@ -43,6 +44,7 @@ class Trivia_topic{
 			while($row = mysqli_fetch_array($data_query)){
 				$id = $row['id'];
 				$topic = $row['topic'];
+				$category = $row['category'];
 				$description = $row['description'];
 
 				if($num_iterations++<$start)
