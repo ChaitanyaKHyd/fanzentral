@@ -4,7 +4,6 @@ include("includes/classes/User.php");
 include("includes/classes/Message.php");
 include("includes/classes/Notification.php");
 
-
 if(isset($_SESSION['username'])){
 	$userLoggedIn = $_SESSION['username'];
 	$user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");

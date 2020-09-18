@@ -30,8 +30,8 @@ class Notification {
 		$query = mysqli_query($this->con, "SELECT * FROM notifications WHERE user_to='$userLoggedIn' ORDER BY id DESC");
 		
 		if(mysqli_num_rows($query)==0){
-			echo "You have no notifications!";
-			return;
+			$return_string ="<p style='text-align: center; padding: 20px 20px;' '>You have no notifications!</p>";
+			return $return_string;
 		}
 
 		$num_iterations = 0;//Number of messages checked
@@ -131,7 +131,7 @@ class Notification {
 		if($count>$limit)
 			$return_string.="<input type='hidden' class='nextPageDropDownData' value='".($page+1)."'><input type='hidden' class='noMoreDropDownData' value='false'>";
 		else
-			$return_string.="<input type='hidden' class='noMoreDropDownData' value='true'><p style='text-align:center;'>No more notifications to load!</p>";
+			$return_string.="<input type='hidden' class='noMoreDropDownData' value='true'><p style='text-align: center;'>No more notifications to load!</p>";
 		return $return_string;
 	}
 

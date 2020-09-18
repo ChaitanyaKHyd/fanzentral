@@ -298,7 +298,7 @@ class Message {
 		if($count > $limit)
 			$return_string .= "<input type='hidden' class='nextPageDropdownData' value='" . ($page + 1) . "'><input type='hidden' class='noMoreDropdownData' value='false'>";
 		else 
-			$return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'> <p style='text-align: center;'>No more messages to load!</p>";
+			$return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'><p style='text-align: center; padding: 20px 20px;'>No more messages to load!</p><a href='messages.php' style='text-align: center; position: absolute; bottom: 5px; left: 100px;'>Messages</a>";
 
 		return $return_string;
 	}

@@ -4,6 +4,7 @@ include("includes/classes/Feed.php");
 
 if(isset($_POST['post'])){
     
+    $post = $_POST['post'];
     $uploadOk = 1;
     $imageName = $_FILES['fileToUpload']['name'];
     $errorMessage = "";
@@ -38,7 +39,7 @@ if(isset($_POST['post'])){
         $post->submitFeed($_POST['post_text'], 'none', $imageName);
     }
     else{
-        echo "<div style='text-align:center;' class='alert alert-danger'>
+        echo "<div style='text-align:center;' class='alert alert-danger alert-dismissible fade show'>
                 $errorMessage
               </div>";
     }

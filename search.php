@@ -43,7 +43,7 @@ else{
 		while($row = mysqli_fetch_array($returnedQuery))
 	{
 		echo "<div class='resultDisplay'>
-				<a href='" . $row['topic'] . "'style='color: #1485BD;'>".$row['topic']."</a>
+				<a href='trivia_page.php?id=".$row['id']."'style='color: #1485BD;'>".$row['topic']."</a>
 				<p>".$row['description']."</p>
 				</div>";
 	}

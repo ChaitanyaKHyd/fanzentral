@@ -23,13 +23,18 @@ body {
 	background-color: #000;
 }
 
+.logo{
+	background: white;
+}
+
 .logo a{
+	padding-right: 10px;
 	margin-left: 10px;
 	font-size: 150%;
 	position: relative;
 	top: 15px;
 	font-family: 'Fjalla One', sans-serif;
-	color: #ffffff;
+	color: #000;
 	text-decoration: none;
 }
 
@@ -350,8 +355,8 @@ textarea:focus {
 }
 
 .delete_button {
-	height: 22px;
-	width: 22px;
+	height: 20px;
+	width: 15px;
 	padding: 0;
 	float: right;
 	border-radius: 4px;
@@ -700,4 +705,12 @@ label{
 	max-width: 100%;
 	display: block;
 	margin: 5px auto;
+}
+
+.post_profile_pic{
+	margin:  0 5px 5px 0;
+}
+
+input.image{
+	background: url('../images/icons/image.png') no-repeat center center fixed;
 }

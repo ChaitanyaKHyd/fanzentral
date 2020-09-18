@@ -208,7 +208,7 @@ class Feed {
 					$imageDiv = "";
 				}
 
-				$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
+				$str .= "<div class='status_post'>
 							<div class='post_profile_pic'>
 								<img src='$profile_pic' width='50'>
 							</div>
@@ -224,7 +224,7 @@ class Feed {
 								<br>
 							</div>
 
-							<div class='newsfeedPostOptions'>
+							<div class='newsfeedPostOptions' onClick='javascript:toggle$id()'>
 								Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
 							</div>
 
@@ -400,7 +400,7 @@ class Feed {
 					$imageDiv = "";
 				}
 
-				$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
+				$str .= "<div class='status_post'>
 							<div class='post_profile_pic'>
 								<img src='$profile_pic' width='50'>
 							</div>
@@ -416,7 +416,7 @@ class Feed {
 								<br>
 							</div>
 
-							<div class='newsfeedPostOptions'>
+							<div class='newsfeedPostOptions' onClick='javascript:toggle$id()'>
 								Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
 							</div>
 
@@ -593,7 +593,7 @@ class Feed {
 					$imageDiv = "";
 				}
 
-				$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
+				$str .= "<div class='status_post'>
 							<div class='post_profile_pic'>
 								<img src='$profile_pic' width='50'>
 							</div>
@@ -609,7 +609,7 @@ class Feed {
 								<br>
 							</div>
 
-							<div class='newsfeedPostOptions'>
+							<div class='newsfeedPostOptions' onClick='javascript:toggle$id()'>
 								Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
 							</div>
 

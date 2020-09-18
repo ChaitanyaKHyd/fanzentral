@@ -5,6 +5,7 @@ include("includes/classes/Trivia_topic.php");
 if(isset($_POST['post'])){
     $topic = new Trivia_topic($con);
     $topic->submitTriviaTopic($_POST['trivia_topic_create'], $_POST['trivia_topic_description'], $_POST['category']);
+    echo '<h3 style="text-align:center;" class="alert alert-success alert-dismissible fade show">Topic created!</h3>';
 }
 ?>
 	<div class="container">
@@ -15,7 +16,7 @@ if(isset($_POST['post'])){
                 <option selected="selected">Choose one</option>
                 <?php
                 // A sample categories array
-                $categories = array("Films", "Sports", "Lifestyle", "Automobiles", "Culture", "Business", "Politics", "Science", "Books");
+                $categories = array("Films", "Sports", "Celebrity", "Organisation", "Lifestyle", "Automobiles", "Culture", "Business", "Politics", "Science", "Books");
                 
                 // Iterating through the categories array
                 foreach($categories as $item){
@@ -32,11 +33,11 @@ if(isset($_POST['post'])){
         </form>
     	</div>
         <br>
-         <select name="category" class="custom-select custom-select-lg mb-3 topic_select">
+         <select name="category" class="custom-select mb-3 topic_select">
                 <option class="selected" selected="selected">Choose one</option>
                 <?php
                 // A sample categories array
-                $categories = array("Films", "Sports", "Lifestyle", "Automobiles", "Culture", "Business", "Politics", "Science", "Books");
+                $categories = array("Films", "Sports", "Celebrity", "Organisation", "Lifestyle", "Automobiles", "Culture", "Business", "Politics", "Science", "Books");
                 
                 // Iterating through the categories array
                 foreach($categories as $item){
@@ -47,7 +48,7 @@ if(isset($_POST['post'])){
                 ?>
             </select>
     <div class ="trivia_topics_area row"></div>
-    <input type='hidden' class='noMorePosts' value='true'><p style='text-align:center;'>No more topics to show!</p>
+    <p style='text-align:center;'>No more topics to show!</p>
     	<img id="loading" src="assets/images/icons/loading.gif" style="display: block; margin: auto;">
     </div>
 	<script>

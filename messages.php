@@ -22,6 +22,10 @@ if(isset($_POST['post_message'])) {
         $message_obj->sendMessage($user_to, $body, $date);
     }
 
+    // Redirect to this page.
+   header( "Location: {$_SERVER['REQUEST_URI']}", true, 303 );
+   exit();
+
 }
 
  ?>

@@ -53,10 +53,10 @@ class Trivia{
 		else
 			$start = ($page - 1)*$limit;
 
-		$id = $data['id'];
+		$trivia_id = $data['id'];
 
 		$str = ""; //String to return
-		$data_query = mysqli_query($this->con,"SELECT * FROM trivia WHERE deleted='no' AND trivia_topic_id='$id'  ORDER BY id DESC");
+		$data_query = mysqli_query($this->con,"SELECT * FROM trivia WHERE deleted='no' AND trivia_topic_id='$trivia_id'  ORDER BY id DESC");
 
 		if(mysqli_num_rows($data_query)>0){
 
@@ -191,7 +191,7 @@ class Trivia{
 								bootbox.confirm("Are you sure you want to delete this trivia post?", function(result){
 									$.post("includes/form_handlers/delete_trivia.php?post_id=<?php echo $id;?>", {result:result});
 									if(result)
-										location.reload();
+										window.location.replace("trivia_page.php?id=<?php echo $trivia_id;  ?>");
 								});
 							});
 						});
@@ -332,7 +332,7 @@ class Trivia{
 								bootbox.confirm("Are you sure you want to delete this trivia post?", function(result){
 									$.post("includes/form_handlers/delete_trivia.php?post_id=<?php echo $id;?>", {result:result});
 									if(result)
-										location.reload();
+										window.location.replace("index.php");
 								});
 							});
 						});
