@@ -54,7 +54,6 @@ if(isset($_POST['post_message'])){
     	<div class="profile_info">
     		<p><?php echo "Posts: ".$user_array['num_posts']; ?></p>
     		<p><?php echo "Upvotes: ".$user_array['num_upvotes']; ?></p>
-    		<p><?php echo "Downvotes: ".$user_array['num_downvotes']; ?></p>
     		<p><?php echo "Friends: ".$num_friends; ?></p>
     	</div>
     	
@@ -97,7 +96,7 @@ if(isset($_POST['post_message'])){
     	?>
     </div>
     <div class="profile_main_column column">
-      <div class="profile_newsfeed">Newsfeed</div>
+      <div class="profile_newsfeed">Profile Wall</div>
         <div style="max-height: 550px; overflow: auto;"class="posts_area"></div>
         <img id="loading" src="assets/images/icons/loading.gif">
      </div>

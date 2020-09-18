@@ -8,7 +8,7 @@ class Feed {
 		$this->user_obj = new User($con, $user);
 	}
 
-	public function submitFeed($body, $user_to){
+	public function submitFeed($body, $user_to, $imageName){
 		$body = strip_tags($body); //remove html tags
 		$body = mysqli_real_escape_string($this->con, $body);
 		$check_empty = preg_replace('/\s+/', '', $body); //Deletes all spaces
@@ -39,7 +39,7 @@ class Feed {
 			}
 
 			//insert feed
-			$query = mysqli_query($this->con, "INSERT INTO feed VALUES('', '$body', '$added_by', '$user_to', '$date_added', 'no', 'no')");
+			$query = mysqli_query($this->con, "INSERT INTO feed VALUES('', '$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '$imageName')");
 			$returned_id = mysqli_insert_id($this->con);
 
 			//insert notification
@@ -74,7 +74,7 @@ class Feed {
 				$body = $row['body'];
 				$added_by = $row['added_by'];
 				$date_time = $row['date_added'];
-
+				$imagePath = $row['image'];
 				//prepare user_to string so it can be included even if not posted to a user
 				if($row['user_to'] == "none"){
 					$user_to = "";
@@ -198,6 +198,16 @@ class Feed {
 					}
 				}
 
+				if($imagePath != ""){
+					$imageDiv = "<div class='postedImage'>
+									<img src='$imagePath'
+								 </div>";
+				}
+
+				else{
+					$imageDiv = "";
+				}
+
 				$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
 							<div class='post_profile_pic'>
 								<img src='$profile_pic' width='50'>
@@ -209,6 +219,7 @@ class Feed {
 							<div id='post_body'>
 								$body
 								<br>
+								$imageDiv
 								<br>
 								<br>
 							</div>
@@ -273,6 +284,7 @@ class Feed {
 				$body = $row['body'];
 				$added_by = $row['added_by'];
 				$date_time = $row['date_added'];
+				$imagePath = $row['image'];
 
 				if($num_iterations++<$start)
 					continue;
@@ -378,6 +390,16 @@ class Feed {
 					}
 				}
 
+				if($imagePath != ""){
+					$imageDiv = "<div class='postedImage'>
+									<img src='$imagePath'
+								 </div>";
+				}
+
+				else{
+					$imageDiv = "";
+				}
+
 				$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
 							<div class='post_profile_pic'>
 								<img src='$profile_pic' width='50'>
@@ -389,6 +411,7 @@ class Feed {
 							<div id='post_body'>
 								$body
 								<br>
+								$imageDiv
 								<br>
 								<br>
 							</div>
@@ -446,6 +469,7 @@ class Feed {
 				$body = $row['body'];
 				$added_by = $row['added_by'];
 				$date_time = $row['date_added'];
+				$imagePath = $row['image'];
 
 				//prepare user_to string so it can be included even if not posted to a user
 				if($row['user_to'] == "none"){
@@ -559,6 +583,16 @@ class Feed {
 					}
 				}
 
+				if($imagePath != ""){
+					$imageDiv = "<div class='postedImage'>
+									<img src='$imagePath'
+								 </div>";
+				}
+
+				else{
+					$imageDiv = "";
+				}
+
 				$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
 							<div class='post_profile_pic'>
 								<img src='$profile_pic' width='50'>
@@ -570,6 +604,7 @@ class Feed {
 							<div id='post_body'>
 								$body
 								<br>
+								$imageDiv
 								<br>
 								<br>
 							</div>

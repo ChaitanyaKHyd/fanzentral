@@ -18,15 +18,17 @@ class Trivia_topic{
 			$description = strip_tags($description); //remove html tags
 			$description = mysqli_real_escape_string($this->con, $description);
 			$category = $topic_category;
+			$date = date("Y-m-d H:i:s");
 
 			//insert trivia topic
-			$query = mysqli_query($this->con, "INSERT INTO trivia_topics VALUES('','$topic', '$category', '$description', 'no')"); 
+			$query = mysqli_query($this->con, "INSERT INTO trivia_topics VALUES('','$topic', '$category', '$description', '$date', 'no')"); 
 		}
 	}
 
 	public function loadTriviaTopics($data, $limit){ 
 
 		$page = $data['page'];
+		$cat = $data['category'];
 
 		if($page == 1)
 			$start = 0;
@@ -34,7 +36,7 @@ class Trivia_topic{
 			$start = ($page - 1)*$limit;
 
 		$str = ""; //String to return
-		$data_query = mysqli_query($this->con,"SELECT * FROM trivia_topics WHERE deleted='no' ORDER BY topic");
+		$data_query = mysqli_query($this->con,"SELECT * FROM trivia_topics WHERE deleted='no' AND category='$cat' ORDER BY topic");
 
 		if(mysqli_num_rows($data_query)>0){
 
@@ -44,7 +46,6 @@ class Trivia_topic{
 			while($row = mysqli_fetch_array($data_query)){
 				$id = $row['id'];
 				$topic = $row['topic'];
-				$category = $row['category'];
 				$description = $row['description'];
 
 				if($num_iterations++<$start)
@@ -60,11 +61,25 @@ class Trivia_topic{
 
 				$str .= "<div class='col-md-6 col-lg-3'>
 							<div class='card my-3'>
-								<div class='card-body'>
-									<h5 class='card-title' id=''>$topic</h5>
-									<p class='card-text'>$description</p>
-									<a href='trivia_page.php?topic=$topic' class='btn btn-dark'>Go to topic</a>
-								</div>
+								<div id='accordion'>
+								  <div class='card'>
+								    <div class='card-header' id='heading$id'>
+								      <h5 class='mb-0'>
+								        <button class='btn btn-link' data-toggle='collapse' data-target='#collapse$id' aria-expanded='true' aria-controls='collapse$id'>
+								          $topic
+								        </button>
+								      </h5>
+								    </div>
+
+								    <div id='collapse$id' class='collapse show' aria-labelledby='heading$id' data-parent='#accordion'>
+								      <div class='card-body'>
+								        $description
+								      </div>
+								    </div>
+								  </div>
+								<a href='trivia_page.php?id=$id' class='btn btn-dark'>Go to topic</a>
+							</div>
+							</div>
 							</div>
 						</div>";
 			}
@@ -72,7 +87,7 @@ class Trivia_topic{
 			if($count>$limit)
 				$str .="<input type='hidden' class='nextPage' value='".($page+1)."'><input type='hidden' class='noMorePosts' value='false'>";
 			else
-				$str .="<input type='hidden' class='noMorePosts' value='true'><p style='text-align:center;'>No more topics to show!</p>";
+				$str .="";
 		
 
 			echo $str;

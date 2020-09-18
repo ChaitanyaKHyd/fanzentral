@@ -2,15 +2,23 @@
 include("includes/header.php"); 
 include("includes/classes/Trivia.php");
 
+
+$id = $_GET['id'];
+$query = mysqli_query($con, "SELECT * FROM trivia_topics WHERE id=$id");
+$row = mysqli_fetch_array($query);
+$trivia_topic = $row['topic'];
+$trivia_topic_description = $row['description'];
+
 if(isset($_POST['trivia_post'])){
     $trivia = new Trivia($con, $userLoggedIn);
-    $trivia->submitTrivia($_POST['trivia_text']);
+    $trivia->submitTrivia($id, $_POST['trivia_text']);
 }
-
  ?>
     <div class="main_trivia_column column">
-        <h1><?php echo $trivia_topic ?></h1>
-        <form class="post_form" action="trivia_page.php" method="POST">
+        <h1><?php echo $trivia_topic; ?></h1>
+        <h5><?php echo $trivia_topic_description; ?></h5>
+        <br>
+        <form class="post_form_trivia" action="trivia_page.php?id=<?php echo $id ?>" method="POST">
           <textarea name="trivia_text" id="post_text" maxlength="280" data-counter_id="length"></textarea>
           <input type="submit" name="trivia_post" id="post_button" value="Post">
           <input style="color:black;font-size:12pt;font-style:italic;display:block;border:none;" readonly type="text" id='length' name="length" size="3" maxlength="3" value="280">
@@ -33,6 +41,7 @@ if(isset($_POST['trivia_post'])){
         });
 
         var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+        var id = '<?php echo $id; ?>';
 
         $(document).ready(function() {
             $('#loading').show();
@@ -42,7 +51,7 @@ if(isset($_POST['trivia_post'])){
             $.ajax({
                 url:"includes/handlers/ajax_load_trivia_posts.php",
                 type:"POST",
-                data:"page=1&userLoggedIn="+userLoggedIn,
+                data:"page=1&userLoggedIn="+userLoggedIn+"&id="+id,
                 cache:false,
 
                 success: function(data){
@@ -63,7 +72,7 @@ if(isset($_POST['trivia_post'])){
                 var ajaxReq = $.ajax({
                 url:"includes/handlers/ajax_load_trivia_posts.php",
                 type:"POST",
-                data:"page="+page+"&userLoggedIn="+userLoggedIn,
+                data:"page="+page+"&userLoggedIn="+userLoggedIn+"&id="+id,
                 cache:false,
 
                 success: function(response){

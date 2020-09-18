@@ -137,33 +137,34 @@ class Notification {
 
 	public function insertNotification($post_id,$user_to, $type){
 		$userLoggedIn = $this->user_obj->getUsername();
-		$userLoggedInName = $this->user_obj->getFirstAndLastName();
+		$user_from = $this->user_obj->getFirstAndLastName();
 
 		$date_time = date("Y-m-d H:i:s");
 
 		switch($type){
 			case'comment':
-				$message = $userLoggedInName." commented on your post";
+				$message = $user_from." commented on your post";
 				break;
 			case'profile_post':
-				$message = $userLoggedInName." posted on your profile";
+				$message = $user_from." posted on your profile";
 				break;
 			case'comment_non-owner':
-				$message = $userLoggedInName." commented on a post you commented on";
+				$message = $user_from." commented on a post you commented on";
 				break;
 			case'profile_comment':
-				$message = $userLoggedInName." commented on your profile post";
+				$message = $user_from." commented on your profile post";
 				break;
 			case'upvote':
-				$message = $userLoggedInName." upvoted on your trivia post";
+				$message = $user_from." upvoted on your trivia post";
 				break;
-			case'downvote':
-				$message = $userLoggedInName." downvoted on your trivia post";
-				break;
-		}		
+				}		
 
-		$link = "post.php?id=".$post_id;
-
+			if($type == 'upvote'){
+			$link = "trivia.php?id=".$post_id;
+			}
+			else{
+			$link = "post.php?id=".$post_id;
+			}
 		$insert_query = mysqli_query($this->con, "INSERT INTO notifications VALUES('', '$user_to', '$userLoggedIn', '$message', '$link', '$date_time', 'no', 'no')");
 	}
 }

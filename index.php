@@ -3,45 +3,72 @@ include("includes/header.php");
 include("includes/classes/Feed.php");
 
 if(isset($_POST['post'])){
-    $post = new Feed($con, $userLoggedIn);
-    $post->submitFeed($_POST['post_text'], 'none');
+    
+    $uploadOk = 1;
+    $imageName = $_FILES['fileToUpload']['name'];
+    $errorMessage = "";
+
+    if($imageName != ""){
+        $targetDir = "assets/images/posts/";
+        $imageName = $targetDir.uniqid().basename($imageName);
+        $imageFileType = pathinfo($imageName, PATHINFO_EXTENSION);
+
+        if($_FILES['fileToUpload']['size']>10000000){
+            $errorMessage = "Sorry, your file is too large!";
+            $uploadOk = 0;
+        }
+
+        if(strtolower($imageFileType) != "jpeg" && strtolower($imageFileType) != "png" && strtolower($imageFileType) != "jpg" && strtolower($imageFileType) != "gif"){
+            $errorMessage = "Sorry, invalid file format!";
+            $uploadOk = 0;
+        }
+
+        if($uploadOk){
+            if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $imageName)){
+                //Image uploaded
+            }
+            else{
+                $uploadOk = 0;
+            }
+        }
+    }
+
+    if($uploadOk){
+        $post = new Feed($con, $userLoggedIn);
+        $post->submitFeed($_POST['post_text'], 'none', $imageName);
+    }
+    else{
+        echo "<div style='text-align:center;' class='alert alert-danger'>
+                $errorMessage
+              </div>";
+    }
 }
 
  ?>
-    <div class="user_details column">
-        <a href="<?php echo $userLoggedIn; ?>"><img src="<?php echo $user['profile_pic']; ?>"></a>
-        <div class="user_details_left_right">
-            <a href="<?php echo $userLoggedIn; ?>">
-            <?php 
-                echo $user['first_name']." ".$user['last_name'];
+    
+    <div class="trivia_topics column">
+        <a href="trivia_topics.php">Trivia topics</a>
+        <hr>  
+        <div>
+             <?php 
+             $query = mysqli_query($con, "SELECT * FROM trivia WHERE deleted ='no' ORDER BY upvotes  DESC LIMIT 10");
+
+             foreach($query as $row){
+                $trivia = $row['body'];
+                $id = $row['id'];
+                $trivia_dot = strlen($trivia) >= 140 ? "..." : "";
+
+                $trimmed_trivia =  str_split($trivia, 140);
+                $trimmed_trivia = $trimmed_trivia[0];
+
+                echo "<a href='trivia.php?id=$id'>$trimmed_trivia".$trivia_dot."</a><hr>";
+             }
              ?>
-             </a>
-             <br>
-             <?php echo "Posts: ".$user['num_posts']."<br>";
-             echo "Upvotes: ".$user['num_upvotes']."<br>";
-             echo "Downvotes: ".$user['num_downvotes']; ?>
          </div>
     </div>
-    <div class="trivia_topics column">
-         <a href="trivia_topics.php">Trivia Topics</a>
-         <hr>
-         <?php 
-         $query = mysqli_query($con, "SELECT topic FROM trivia_topics ORDER BY topic LIMIT 10");
-
-         foreach($query as $row){
-            $topic = $row['topic'];
-            $topic_dot = strlen($topic) >= 28 ? "..." : "";
-
-            $trimmed_topic =  str_split($topic, 28);
-            $trimmed_topic = $trimmed_topic[0];
-
-            echo "<a href='trivia_page.php'>$trimmed_topic".$topic_dot."</a><br><br>";
-         }
-
-         ?>
-    </div>
     <div class="main_column column">
-        <form class="post_form" action="index.php" method="POST">
+        <form class="post_form" action="index.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="fileToUpload" id="fileToUpload">
             <textarea name="post_text" id="post_text" placeholder="Post something"></textarea>
             <input type="submit" name="post" id="post_button" value="Post"></input>
             <hr>
@@ -50,10 +77,10 @@ if(isset($_POST['post'])){
 
         <div class="posts_area"></div>
         <img id="loading" src="assets/images/icons/loading.gif" style="display: block; margin: auto;">
-
     </div>
 
     <script>
+
         var userLoggedIn = '<?php echo $userLoggedIn; ?>';
 
         $(document).ready(function() {

@@ -23,33 +23,52 @@ else{
  	if($query=="")
  		echo "You must enter something in the search box.";
  	else{
-		//If there are two words, assume they are first and last names respectively
-
+		
 		$search = explode(" ", $query);
 
-		$topicreturnedQuery = mysqli_query($con, "SELECT * FROM trivia_topics WHERE topic LIKE '$search[0]%'");
+		//If type is trivia topic, assume trivia topics being searched
+		if($type == "topic"){
 
-		if(count($search) == 3)
-			$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$search[0]%' AND last_name LIKE '$search[2]%') AND user_closed='no'");
-		//If query has one word only, search first names or last names 
-		else if(count($search) == 2)
-			$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$search[0]%' AND last_name LIKE '$search[1]%') AND user_closed='no'");
-		else 
-			$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$search[0]%' OR last_name LIKE '$search[0]%') AND user_closed='no'");
-
-		$resultsNum = mysqli_num_rows($topicreturnedQuery)+mysqli_num_rows($usersReturnedQuery);
-
+		$returnedQuery = mysqli_query($con, "SELECT * FROM trivia_topics WHERE topic LIKE '$search[0]%'");
 
 		//Check if results were found 
-		if(mysqli_num_rows($usersReturnedQuery) == 0 && mysqli_num_rows($topicreturnedQuery) == 0)
+		if(mysqli_num_rows($returnedQuery) == 0)
 			echo "We can't find anything with a " . $type . " like: " .$query;
 		else 
-			echo $resultsNum . " results found: <br> <br>";
+			echo mysqli_num_rows($returnedQuery) . " results found: <br> <br>";
 
 		echo "<p id='grey'>Try searching for:</p>";
 		echo "<a href='search.php?q=" . $query ."&type=name'>Names</a>, <a href='search.php?q=" . $query ."&type=topic'>Trivia Topics</a><br><br><hr id='search_hr'>";
 
-		while($row = mysqli_fetch_array($usersReturnedQuery)) {
+		while($row = mysqli_fetch_array($returnedQuery))
+	{
+		echo "<div class='resultDisplay'>
+				<a href='" . $row['topic'] . "'style='color: #1485BD;'>".$row['topic']."</a>
+				<p>".$row['description']."</p>
+				</div>";
+	}
+		}
+		
+		else{
+		//If there are two words, assume they are first and last names respectively
+		if(count($search) == 3)
+			$returnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$search[0]%' AND last_name LIKE '$search[2]%') AND user_closed='no'");
+		//If query has one word only, search first names or last names 
+		else if(count($search) == 2)
+			$returnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$search[0]%' AND last_name LIKE '$search[1]%') AND user_closed='no'");
+		else 
+			$returnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$search[0]%' OR last_name LIKE '$search[0]%') AND user_closed='no'");
+
+		//Check if results were found 
+		if(mysqli_num_rows($returnedQuery) == 0)
+			echo "We can't find anything with a " . $type . " like: " .$query;
+		else 
+			echo mysqli_num_rows($returnedQuery) . " results found: <br> <br>";
+
+		echo "<p id='grey'>Try searching for:</p>";
+		echo "<a href='search.php?q=" . $query ."&type=name'>Names</a>, <a href='search.php?q=" . $query ."&type=topic'>Trivia Topics</a><br><br><hr id='search_hr'>";
+
+		while($row = mysqli_fetch_array($returnedQuery)) {
 			$user_obj = new User($con, $user['username']);
 
 			$button = "";
@@ -116,14 +135,8 @@ else{
 
 		} //End while
 
-		while($searchrow = mysqli_fetch_array($topicreturnedQuery))
-	{
-		echo "<div class='resultDisplay'>
-				<a href='" . $searchrow['topic'] . "'style='color: #1485BD;'>".$searchrow['topic']."</a>
-				</div>
-				<hr id='search_hr'>";
-	}
 
+	    }
 
 	}
 

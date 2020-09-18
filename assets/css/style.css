@@ -14,7 +14,12 @@ body {
 	z-index: 10;
 }
 
+.card-header{
+	padding: 5px;
+}
+
 .btn-dark{
+	display: block;
 	background-color: #000;
 }
 
@@ -28,7 +33,7 @@ body {
 	text-decoration: none;
 }
 
-nav{
+.header{
 	float: right;
 	margin: 15px;
 	position: absolute;
@@ -36,7 +41,7 @@ nav{
 	margin: 10px;
 }
 
-nav a{
+.header a{
 	position: relative;
 	color: #ffffff;
 	text-decoration: none;
@@ -65,6 +70,14 @@ nav a:hover{
 	z-index: -1;
 }
 
+.trivia_column{
+	background-color: #fff;
+	padding: 10px;
+	border: 1px solid #D3D3D3;
+	border-radius: 5px;
+	box-shadow: 2px 2px 1px #D3D3D3;
+}
+
 .user_details{
 	width: 265px;
 	float: left;
@@ -85,17 +98,43 @@ nav a:hover{
 .trivia_topics{
 	width: 265px;
 	float: left;
-	display: inline-block;
-	position: absolute;
-	top: 160px;
-    left: 10px;
+	display: block;
 }
 
 .main_column {
-	float:right;
+	float: left;
+    width: 60%;
+    z-index: -1;
+    min-height: 170px;
+    position: absolute;
+    left: 300px;
+}
+
+.trivia_main_column {
 	width: 70%;
+	display: block;
+	position: absolute;
+    top: 100px;
+    left: 150px;
+}
+
+.trivia_breadcrumb{
+	display: block;
+	float: left;
+}
+
+.main_settings_column {
+	float:left;
+	width: 72%;
 	z-index: -1;
 	min-height: 170px;
+}
+.name_column{
+	float: left;
+}
+
+.password_column{
+	float: right;
 }
 
 .post_form{
@@ -110,12 +149,24 @@ nav a:hover{
 	border: 1px solid #D3D3D3;
 }
 
+.post_form_trivia{
+	width: 100%;
+}
+
+.post_form_trivia textarea{
+	width:80%;
+	height: 60px;
+	border-radius: 5px;
+	margin-right: 5px;
+	border: 1px solid #D3D3D3;
+}
+
 textarea:focus {
 	outline: 0;
 }
 
 .post_form input[type="submit"]{
-	width: 10%;
+	width: 15%;
 	height: 60px;
 	border: none;
 	border-radius: 5px;
@@ -128,6 +179,18 @@ textarea:focus {
 
 .post_form input[type="submit"]:active{
 	padding: 5px 4px 4px 5px;
+}
+
+.post_form_trivia input[type="submit"]{
+	width: 10%;
+	height: 60px;
+	border: none;
+	border-radius: 5px;
+	background-color: #000000;
+	color: #ffffff;
+	position: absolute;
+	outline: 0;
+	margin: 0;
 }
 
 .status_post{
@@ -292,8 +355,35 @@ textarea:focus {
 	padding: 0;
 	float: right;
 	border-radius: 4px;
-	right: -15px;
+	right: 15px;
 	position: relative;
+}
+
+.vote{
+	position: relative;
+	left: 50px;
+}
+
+.vote iframe{
+	border: none;
+	height:17px;
+	width:300px;
+}
+
+.comment_vote{
+	background-color: transparent;
+	border: none;
+	font-size: 14px;
+	color: #3498db;
+	padding: 0;
+	height: auto;
+	width: auto;
+	margin:0;
+}
+
+.upvote_value{
+	display: inline;
+	font-size: 14px;
 }
 
 .profile_main_column {
@@ -303,7 +393,6 @@ textarea:focus {
 	float: left;
 	width: 70%;
 	z-index: -1;
-
 }
 
 .profile_info_bottom {
@@ -343,7 +432,7 @@ textarea:focus {
 }
 
 .message#blue{
-	background-color: #3498db;
+	background-color: #34adf5;
 	float: right;
 	margin-bottom: 5px;
 }
@@ -544,8 +633,8 @@ textarea:focus {
 label{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    text-align: right;
+    justify-content: flex-start;
+    text-align: left;
     width: 320px;
     margin-bottom: 0px;
 }
@@ -565,7 +654,6 @@ label{
     padding: 7px 12px;
     border-radius: 5px;
     color: #fff;
-    margin: 0 auto;
     display:block;
 }
 
@@ -589,4 +677,27 @@ label{
 .vote_value{
 	display: inline;
 	font-size: 14px;
+}
+
+.topic_select{
+	width: 200px;
+    margin: 0 auto;
+    display: block;
+}
+
+.single_trivia_topic{
+	display: block;
+	position: absolute;
+    left: 150px;
+}
+
+#fileToUpload{
+	margin-bottom: 5px;
+}
+
+.postedImage img{
+	max-height: 450px;
+	max-width: 100%;
+	display: block;
+	margin: 5px auto;
 }

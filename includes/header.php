@@ -59,7 +59,7 @@ else{
         
       </div>
     </div>
-		<nav>
+		<nav class="header">
 			<?php 
 				//Unread messages
 				$messages = new Message($con, $userLoggedIn);
@@ -74,7 +74,7 @@ else{
         $num_requests = $user_obj->getNumberofFriendRequests();
 
 			 ?>
-  			<a href="index.php"><i class="fas fa-home"></i></a>
+  			<a href="<?php echo $userLoggedIn; ?>"><?php echo $user['first_name']; ?></a>
   			<a href="javascript:void(0)" onclick="getDropdownData('<?php echo $userLoggedIn;?>', 'message')"><i class="fas fa-inbox"></i>
   				<?php 
   				if($num_messages>0)

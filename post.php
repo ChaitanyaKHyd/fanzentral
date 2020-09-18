@@ -21,8 +21,7 @@ else{
          </a>
          <br>
          <?php echo "Posts: ".$user['num_posts']."<br>";
-         echo "Upvotes: ".$user['num_upvotes']."<br>";
-         echo "Downvotes: ".$user['num_downvotes']; ?>
+         echo "Upvotes: ".$user['num_upvotes']."<br>";?>
     </div>
 </div>
 

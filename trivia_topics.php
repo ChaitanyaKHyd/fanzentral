@@ -9,16 +9,16 @@ if(isset($_POST['post'])){
 ?>
 	<div class="container">
 		<div class="main_trivia_column column">
-        <form class="post_form" action="trivia_topics.php" method="POST">
+        <form class="post_form_trivia" action="trivia_topics.php" method="POST">
         	<input type="text" name="trivia_topic_create" placeholder="Trivia Topic" required>
             <select name="category">
                 <option selected="selected">Choose one</option>
                 <?php
-                // A sample product array
-                $products = array("Films", "Sports", "Lifestyle", "Automobiles", "Culture", "Business", "Politics", "Science", "Books");
+                // A sample categories array
+                $categories = array("Films", "Sports", "Lifestyle", "Automobiles", "Culture", "Business", "Politics", "Science", "Books");
                 
-                // Iterating through the product array
-                foreach($products as $item){
+                // Iterating through the categories array
+                foreach($categories as $item){
                 ?>
                 <option value="<?php echo strtolower($item); ?>"><?php echo $item; ?></option>
                 <?php
@@ -31,19 +31,37 @@ if(isset($_POST['post'])){
             <hr>
         </form>
     	</div>
+        <br>
+         <select name="category" class="custom-select custom-select-lg mb-3 topic_select">
+                <option class="selected" selected="selected">Choose one</option>
+                <?php
+                // A sample categories array
+                $categories = array("Films", "Sports", "Lifestyle", "Automobiles", "Culture", "Business", "Politics", "Science", "Books");
+                
+                // Iterating through the categories array
+                foreach($categories as $item){
+                ?>
+                <option value="<?php echo strtolower($item); ?>"><?php echo $item; ?></option>
+                <?php
+                }
+                ?>
+            </select>
     <div class ="trivia_topics_area row"></div>
+    <input type='hidden' class='noMorePosts' value='true'><p style='text-align:center;'>No more topics to show!</p>
     	<img id="loading" src="assets/images/icons/loading.gif" style="display: block; margin: auto;">
-
+    </div>
 	<script>
         $(document).ready(function() {
             $('#loading').show();
 
+            $(".topic_select").change(function(){
+                var cat = $('.topic_select').val();    
+            
             //Original ajax request for loading first posts
-
             $.ajax({
                 url:"includes/handlers/ajax_load_trivia_topics.php",
                 type:"POST",
-                data:"page=1&userLoggedIn="+userLoggedIn,
+                data:"page=1&category="+cat,
                 cache:false,
 
                 success: function(data){
@@ -64,12 +82,11 @@ if(isset($_POST['post'])){
                 var ajaxReq = $.ajax({
                 url:"includes/handlers/ajax_load_trivia_topics.php",
                 type:"POST",
-                data:"page="+page+"&userLoggedIn="+userLoggedIn,
+                data:"page="+page+"&category="+cat,
                 cache:false,
 
                 success: function(response){
                     $('.trivia_topics_area').find('.nextPage').remove();
-                    $('.trivia_topics_area').find('.noMorePosts').remove();
 
                     $('#loading').hide();
                     $('.trivia_topics_area').append(response);
@@ -80,9 +97,10 @@ if(isset($_POST['post'])){
             }
             return false;
             });
-        });
+            });
+            });
     </script>
-</div>
+    </div>
 	</body>
 </html>
 
