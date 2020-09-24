@@ -53,8 +53,7 @@ if(isset($_POST['post'])){
     </div>
 	<script>
         $(document).ready(function() {
-            $('#loading').show();
-
+            $('#loading').hide();
             $(".topic_select").change(function(){
                 var cat = $('.topic_select').val();    
             

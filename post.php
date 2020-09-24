@@ -20,7 +20,7 @@ else{
          ?>
          </a>
          <br>
-         <?php echo "Posts: ".$user['num_posts']."<br>";
+         <?php echo "Trivia Posts: ".$user['num_posts']."<br>";
          echo "Upvotes: ".$user['num_upvotes']."<br>";?>
     </div>
 </div>

@@ -14,6 +14,7 @@ if(isset($_POST['trivia_post'])){
     $trivia->submitTrivia($id, $_POST['trivia_text']);
 }
  ?>
+    <div class="container">
     <div class="main_trivia_column column">
         <h1><?php echo $trivia_topic; ?></h1>
         <h5><?php echo $trivia_topic_description; ?></h5>
@@ -29,9 +30,9 @@ if(isset($_POST['trivia_post'])){
         <img id="loading" src="assets/images/icons/loading.gif" style="display: block; margin: auto;">
 
     </div>
+    </div>
 
     <script>
-
         document.getElementById('post_text').addEventListener('input', (e) => {
           let el = e.currentTarget;
           let counterId = el.dataset.counter_id;

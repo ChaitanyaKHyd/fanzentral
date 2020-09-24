@@ -10,13 +10,15 @@ if(isset($_SESSION['username'])){
 	$user = mysqli_fetch_array($user_details_query);
 }
 else{
-	header("Location: register.php");
+	$userLoggedIn = 'demo_user';
+  $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
+  $user = mysqli_fetch_array($user_details_query);
 }
 
 ?>
 <html>
 <head>
-	<title>Fanzentral</title>
+	<title>FanZentral</title>
 	<!--Javascript-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="assets/js/bootbox.min.js"></script>
@@ -29,6 +31,7 @@ else{
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/jquery.Jcrop.css">
+  <link rel="icon" href="assets/images/icons/minilogo200x200.png">
 
 	<!--font-->
 	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">

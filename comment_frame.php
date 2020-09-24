@@ -28,6 +28,10 @@ else{
 		font-family: 'Ubuntu', Sans-serif;
 	}
 
+	body{
+		height: auto;
+		width: auto;
+	}
 	</style>
 <script>
 	function toggle(){
@@ -89,7 +93,7 @@ if(isset($_POST['postComment'.$post_id])){
 
 <!-- Load Comments -->
 <?php 
-$get_comments = mysqli_query($con,"SELECT * FROM comments WHERE post_id='$post_id' ORDER BY id ASC");
+$get_comments = mysqli_query($con,"SELECT * FROM comments WHERE post_id='$post_id' ORDER BY id DESC");
 $count = mysqli_num_rows($get_comments);
 
 if($count!=0){

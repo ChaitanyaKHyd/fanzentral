@@ -12,6 +12,7 @@ require 'includes/form_handlers/login_handler.php';
 	<link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+	<link rel="icon" href="assets/images/icons/minilogo200x200.png">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="assets/js/register.js"></script>
 </head>
@@ -56,11 +57,17 @@ require 'includes/form_handlers/login_handler.php';
 					<br>
 					<input type="password" name="log_password" placeholder="Password">
 					<br>
-					<?php if(in_array("Email or password was incorrect<br>", $error_array)) echo  "Email or password was incorrect<br>"; ?>
-					<a href="#" style="display: block;">Forgot Password?</a>
+					<?php if(in_array("Email or password was incorrect<br>", $error_array)) echo  "Email or password was incorrect<br>"; 
+						if(isset($_GET['newpwd'])){
+							if($_GET['newpwd'] == "passwordupdated"){
+								echo '<p style="color: #14C800;">Your password has been reset!</p>';
+							}
+						}
+					?>
+					<a href="forgot_password.php" style="display: block;">Forgot Password?</a>
 					<input type="submit" name="login_button" value="Login">
 					<br>
-					<a href="#" id="signup" class="signup">Need and account? Register here!</a>
+					<a href="#" id="signup" class="signup">Need an account? Register here!</a>
 
 				</form>
 

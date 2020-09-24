@@ -25,19 +25,12 @@ if(isset($_POST['respond_request'])){
 }
 
  ?>
-
- <style>
- 	.wrapper{
- 		margin-left: 0px;
- 		padding-left: 0px;
- 	}	
- </style>
  
     <div class="profile_left">
     	<img src="<?php echo $user_array['profile_pic'];?>">
 
     	<div class="profile_info">
-    		<p><?php echo "Posts: ".$user_array['num_posts']; ?></p>
+    		<p><?php echo "Trivia Posts: ".$user_array['num_posts']; ?></p>
     		<p><?php echo "Upvotes: ".$user_array['num_upvotes']; ?></p>
     		<p><?php echo "Friends: ".$num_friends; ?></p>
     	</div>

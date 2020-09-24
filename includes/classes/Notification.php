@@ -115,7 +115,7 @@ class Notification {
 				}
 			}
 
-			$opned = $row['opened'];
+			$opened = $row['opened'];
 			$style = ($row['opened']=='no') ? "background-color: #DDEDFF;" : "";
 
 			$return_string .= "<a href='".$row['link']."'>
@@ -148,7 +148,7 @@ class Notification {
 			case'profile_post':
 				$message = $user_from." posted on your profile";
 				break;
-			case'comment_non-owner':
+			case'comment_non_owner':
 				$message = $user_from." commented on a post you commented on";
 				break;
 			case'profile_comment':

@@ -38,15 +38,13 @@ class Trivia{
 			$num_posts = $this->user_obj->getNumPosts();
 			$num_posts++;
 			$update_query = mysqli_query($this->con, "UPDATE users SET num_posts='$num_posts' WHERE username='$added_by'");
-
-			
 		}
 	}
 
 	public function loadTriviaPosts($data, $limit){ 
 
 		$page = $data['page'];
-		$userLoggedIn = $this->user_obj->getUsername();
+		$userLoggedIn = $data['userLoggedIn'];
 
 		if($page == 1)
 			$start = 0;
@@ -78,7 +76,7 @@ class Trivia{
 				}
 
 				$user_logged_obj = new User($this->con, $userLoggedIn);
-				if($user_logged_obj->isFriend($added_by)){
+				if(!$user_logged_obj->isClosed()){
 
 				if($num_iterations++<$start)
 					continue;

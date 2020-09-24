@@ -43,3 +43,4 @@ include("includes/form_handlers/settings_handler.php");
  	 </form>
  	 </div>
  </div>
+</div>
