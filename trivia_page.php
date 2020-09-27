@@ -16,7 +16,7 @@ if(isset($_POST['trivia_post'])){
  ?>
     <div class="container">
     <div class="main_trivia_column column">
-        <h1><?php echo $trivia_topic; ?></h1>
+        <h2><?php echo $trivia_topic; ?></h2>
         <h5><?php echo $trivia_topic_description; ?></h5>
         <br>
         <form class="post_form_trivia" action="trivia_page.php?id=<?php echo $id ?>" method="POST">

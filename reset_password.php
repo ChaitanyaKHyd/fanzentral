@@ -20,7 +20,7 @@ require 'includes/form_handlers/reset_password_handler.php';
 		<div class="login_box">
 
 			<div class="login_header">
-				<h1>FanZentral.com</h1>
+				<h1>FanZentral.net</h1>
 				Reset Password
 				<br>
 			</div>
@@ -40,7 +40,7 @@ require 'includes/form_handlers/reset_password_handler.php';
 					<input type="submit" name="reset_password_button" value="Update password">
 					<br>
 					<?php if(in_array("<span style='color: #14C800;'>Password updated, You can login now</span><br>", $error_array)) echo "<span style='color: #14C800;'>Password updated, You can login now</span><br>"; ?>
-					<a href="register.php" id="signup" class="signup">Need an account? Register here!</a>
+					<a href="register.php" id="signup" class="signup">Already have an account? Sign in here!</a>
 					
 				</form>
 				<?php

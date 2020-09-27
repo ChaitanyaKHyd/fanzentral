@@ -51,6 +51,22 @@ class Feed {
 		}
 	}
 
+	public function editFeed($body, $id, $user_from, $user_to){
+		$body = strip_tags($body); //remove html tags
+		$body = mysqli_real_escape_string($this->con, $body);
+		$check_empty = preg_replace('/\s+/', '', $body); //Deletes all spaces
+
+			//update feed
+			$query = mysqli_query($this->con, "UPDATE feed SET body='$body' WHERE id='$id'");
+
+			//insert notification
+			if($user_to!= 'none'){
+				$notification = new Notification($this->con, $user_from);
+				$notification->insertNotification($id, $user_to, "edit_profile_post");
+			}
+			
+		}
+
 	public function loadPostsFriends($data, $limit){ 
 
 		$page = $data['page'];
@@ -106,9 +122,32 @@ class Feed {
 				}
 
 				if($userLoggedIn==$added_by)
-					$delete_button = "<button class='delete_button btn-danger' id='post$id'>X</button>";
-				else
-					$delete_button = "";
+					$more_button = "<div class='more_button'>
+									<div class='more_container'>
+									    <div class='more' id='more$id'>
+									        <button class='more-btn' id='more-btn$id'>
+									            <span class='more-dot'></span>
+									            <span class='more-dot'></span>
+									            <span class='more-dot'></span>
+									        </button>
+									        <div class='more-menu' id='more-menu$id'>
+									            <div class='more-menu-caret'>
+									                <div class='more-menu-caret-outer'></div>
+									                <div class='more-menu-caret-inner'></div>
+									            </div>
+									            <ul class='more-menu-items' tabindex='-1' role='menu' aria-labelledby='more-btn' aria-hidden='true' id='post$id'>
+									                <li class='more-menu-item' role='presentation'>
+									                    <button type='button' class='more-menu-btn' role='menuitem' id='delete'>Delete</button>
+									                </li>	
+									            </ul>
+									        </div>
+									    </div>
+									</div>
+									</div>";
+
+									else
+									$more_button = "";
+				
 				$user_details_query = mysqli_query($this->con, "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
 				$user_row = mysqli_fetch_array($user_details_query);
 				$first_name = $user_row['first_name'];
@@ -214,7 +253,7 @@ class Feed {
 							</div>
 							<div class='posted_by' style='color:#000000 ;'>
 								<a href='$added_by'>$first_name $last_name</a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
-								$delete_button
+								$more_button
 							</div>
 							<div id='post_body'>
 								$body
@@ -237,13 +276,22 @@ class Feed {
 
 					?>
 					<script>
-						$(document).ready(function(){
-							$('#post<?php echo $id;?>').on('click', function(){
-								bootbox.confirm("Are you sure you want to delete this post?", function(result){
-									$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id;?>", {result:result});
-									if(result)
-										location.reload();
-								});
+						$('#more<?php echo $id;?>').find('#more-btn<?php echo $id;?>').on('click', showMenu);
+
+						function showMenu() {
+						        document.querySelector('#more<?php echo $id;?>').classList.add('show-more-menu');
+						        document.querySelector('#more<?php echo $id;?>').querySelector('.more-menu').setAttribute('aria-hidden', false);
+								document.addEventListener('mousedown', function(e) {
+								    if ($(e.target).is("#delete") === false && $(e.target).is("#edit") === false) {
+								      $("#more<?php echo $id;?>").removeClass("show-more-menu");
+								    }
+								  });
+								}
+						$('#more-menu<?php echo $id;?>').find('#delete').on('click', function(){
+							bootbox.confirm("Are you sure you want to delete this post?", function(result){
+								$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id;?>", {result:result});
+								if(result)
+									location.reload();
 							});
 						});
 
@@ -298,9 +346,30 @@ class Feed {
 				}
 
 				if($userLoggedIn==$added_by)
-					$delete_button = "<button class='delete_button btn-danger' id='post$id'>X</button>";
+					$more_button = "<div class='more_button'>
+									<div class='more_container'>
+									    <div class='more' id='more$id'>
+									        <button class='more-btn' id='more-btn$id'>
+									            <span class='more-dot'></span>
+									            <span class='more-dot'></span>
+									            <span class='more-dot'></span>
+									        </button>
+									        <div class='more-menu' id='more-menu$id'>
+									            <div class='more-menu-caret'>
+									                <div class='more-menu-caret-outer'></div>
+									                <div class='more-menu-caret-inner'></div>
+									            </div>
+									            <ul class='more-menu-items' tabindex='-1' role='menu' aria-labelledby='more-btn' aria-hidden='true' id='post$id'>
+									                <li class='more-menu-item' role='presentation'>
+									                    <button type='button' class='more-menu-btn' role='menuitem' id='delete'>Delete</button>
+									                </li>
+									            </ul>
+									        </div>
+									    </div>
+									</div>
+									</div>";
 				else
-					$delete_button = "";
+					$more_button = "";
 				$user_details_query = mysqli_query($this->con, "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
 				$user_row = mysqli_fetch_array($user_details_query);
 				$first_name = $user_row['first_name'];
@@ -406,7 +475,7 @@ class Feed {
 							</div>
 							<div class='posted_by' style='color:#000000 ;'>
 								<a href='$added_by'>$first_name $last_name</a>&nbsp;&nbsp;&nbsp;&nbsp;$time_message
-								$delete_button
+								$more_button
 							</div>
 							<div id='post_body'>
 								$body
@@ -428,15 +497,25 @@ class Feed {
 
 					?>
 					<script>
-						$(document).ready(function(){
-							$('#post<?php echo $id;?>').on('click', function(){
-								bootbox.confirm("Are you sure you want to delete this post?", function(result){
-									$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id;?>", {result:result});
-									if(result)
-										location.reload();
-								});
+						$('#more<?php echo $id;?>').find('#more-btn<?php echo $id;?>').on('click', showMenu);
+
+						function showMenu() {
+						        document.querySelector('#more<?php echo $id;?>').classList.add('show-more-menu');
+						        document.querySelector('#more<?php echo $id;?>').querySelector('.more-menu').setAttribute('aria-hidden', false);
+								document.addEventListener('mousedown', function(e) {
+								    if ($(e.target).is("#delete") === false && $(e.target).is("#edit") === false) {
+								      $("#more<?php echo $id;?>").removeClass("show-more-menu");
+								    }
+								  });
+								}
+						$('#more-menu<?php echo $id;?>').find('#delete').on('click', function(){
+							bootbox.confirm("Are you sure you want to delete this post?", function(result){
+								$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id;?>", {result:result});
+								if(result)
+									location.reload();
 							});
 						});
+
 
 					</script>
 					<?php
@@ -491,9 +570,30 @@ class Feed {
 				if($user_logged_obj->isFriend($added_by)){
 
 				if($userLoggedIn==$added_by)
-					$delete_button = "<button class='delete_button btn-danger' id='post$id'>X</button>";
+					$more_button = "<div class='more_button'>
+									<div class='more_container'>
+									    <div class='more' id='more$id'>
+									        <button class='more-btn' id='more-btn$id'>
+									            <span class='more-dot'></span>
+									            <span class='more-dot'></span>
+									            <span class='more-dot'></span>
+									        </button>
+									        <div class='more-menu' id='more-menu$id'>
+									            <div class='more-menu-caret'>
+									                <div class='more-menu-caret-outer'></div>
+									                <div class='more-menu-caret-inner'></div>
+									            </div>
+									            <ul class='more-menu-items' tabindex='-1' role='menu' aria-labelledby='more-btn' aria-hidden='true' id='post$id'>
+									                <li class='more-menu-item' role='presentation'>
+									                    <button type='button' class='more-menu-btn' role='menuitem' id='delete'>Delete</button>
+									                </li>
+									            </ul>
+									        </div>
+									    </div>
+									</div>
+									</div>";
 				else
-					$delete_button = "";
+					$more_button = "";
 				$user_details_query = mysqli_query($this->con, "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
 				$user_row = mysqli_fetch_array($user_details_query);
 				$first_name = $user_row['first_name'];
@@ -599,7 +699,7 @@ class Feed {
 							</div>
 							<div class='posted_by' style='color:#000000 ;'>
 								<a href='$added_by'>$first_name $last_name</a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
-								$delete_button
+								$more_button
 							</div>
 							<div id='post_body'>
 								$body
@@ -621,15 +721,25 @@ class Feed {
 
 					?>
 					<script>
-						$(document).ready(function(){
-							$('#post<?php echo $id;?>').on('click', function(){
-								bootbox.confirm("Are you sure you want to delete this post?", function(result){
-									$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id;?>", {result:result});
-									if(result)
-										location.reload();
-								});
+						$('#more<?php echo $id;?>').find('#more-btn<?php echo $id;?>').on('click', showMenu);
+
+						function showMenu() {
+						        document.querySelector('#more<?php echo $id;?>').classList.add('show-more-menu');
+						        document.querySelector('#more<?php echo $id;?>').querySelector('.more-menu').setAttribute('aria-hidden', false);
+								document.addEventListener('mousedown', function(e) {
+								    if ($(e.target).is("#delete") === false && $(e.target).is("#edit") === false) {
+								      $("#more<?php echo $id;?>").removeClass("show-more-menu");
+								    }
+								  });
+								}
+						$('#more-menu<?php echo $id;?>').find('#delete').on('click', function(){
+							bootbox.confirm("Are you sure you want to delete this post?", function(result){
+								$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id;?>", {result:result});
+								if(result)
+									location.reload();
 							});
 						});
+
 
 					</script>
 					<?php

@@ -33,7 +33,7 @@ if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		array_push($error_array, "<span style='color: #14C800;'>Check your email for reset link.</span><br>");
 
 		$to = $email;
-		$subject = "Reset your password for FanZentral.com";
+		$subject = "Reset your password for FanZentral.net";
 
 		$message = "<p>We received a password reset request. If you did not make this request, you can ignore this email</p>";
 

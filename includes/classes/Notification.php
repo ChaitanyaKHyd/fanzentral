@@ -157,7 +157,10 @@ class Notification {
 			case'upvote':
 				$message = $user_from." upvoted on your trivia post";
 				break;
-				}		
+			case'edit_profile_post':
+				$message = $user_from." edited the post";
+				break;
+				}			
 
 			if($type == 'upvote'){
 			$link = "trivia.php?id=".$post_id;

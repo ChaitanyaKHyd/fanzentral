@@ -19,7 +19,7 @@ require 'includes/form_handlers/forgot_password_handler.php';
 		<div class="login_box">
 
 			<div class="login_header">
-				<h1>FanZentral.com</h1>
+				<h1>FanZentral.net</h1>
 				Forgot Password
 			</div>
 			<br>
@@ -31,7 +31,7 @@ require 'includes/form_handlers/forgot_password_handler.php';
 					<input type="submit" name="forgot_password_button" value="Send reset link">
 					<br>
 					<?php if(in_array("<span style='color: #14C800;'>Check your email for reset link.</span><br>", $error_array)) echo "<span style='color: #14C800;'>Check your email for reset link.</span><br>"; ?>
-					<a href="register.php" id="signup" class="signup">Need an account? Register here!</a>
+					<a href="register.php" id="signup" class="signup">Already have an account? Sign in here!</a>
 					
 
 				</form>

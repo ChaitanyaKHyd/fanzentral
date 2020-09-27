@@ -57,9 +57,9 @@ if(isset($_POST['post'])){
              foreach($query as $row){
                 $trivia = $row['body'];
                 $id = $row['id'];
-                $trivia_dot = strlen($trivia) >= 140 ? "..." : "";
+                $trivia_dot = strlen($trivia) >= 70 ? "..." : "";
 
-                $trimmed_trivia =  str_split($trivia, 140);
+                $trimmed_trivia =  str_split($trivia, 70);
                 $trimmed_trivia = $trimmed_trivia[0];
 
                 echo "<a href='trivia.php?id=$id'>$trimmed_trivia".$trivia_dot."</a><hr>";

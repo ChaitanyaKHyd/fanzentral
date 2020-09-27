@@ -45,7 +45,7 @@ else{
 <body>
 	<div class="top_bar">
 		<div class="logo">
-			<a href="index.php">FanZentral.com</a>
+			<a href="index.php">FanZentral.net</a>
 		</div>
     <div class="search">
       <form action="search.php" method="GET" name="search_form">
