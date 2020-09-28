@@ -1,0 +1,54 @@
+[27-Sep-2020 12:38:43 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/fanze8he/public_html/fanzentral/config/config.php on line 7
+[27-Sep-2020 12:38:43 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/fanzentral/includes/classes/User.php on line 8
+[27-Sep-2020 12:38:43 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/fanzentral/includes/classes/User.php on line 9
+[27-Sep-2020 12:38:43 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/fanzentral/includes/classes/Feed.php on line 81
+[27-Sep-2020 12:38:43 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/fanzentral/includes/classes/Feed.php on line 83
+[27-Sep-2020 12:40:53 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 12:40:53 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/User.php on line 8
+[27-Sep-2020 12:40:53 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/User.php on line 9
+[27-Sep-2020 12:40:53 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 81
+[27-Sep-2020 12:40:53 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 83
+[27-Sep-2020 12:52:33 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 12:52:33 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/User.php on line 8
+[27-Sep-2020 12:52:33 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/User.php on line 9
+[27-Sep-2020 12:52:33 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 81
+[27-Sep-2020 12:52:33 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 83
+[27-Sep-2020 12:53:11 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 12:53:11 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/User.php on line 8
+[27-Sep-2020 12:53:11 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/User.php on line 9
+[27-Sep-2020 12:53:11 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 81
+[27-Sep-2020 12:53:11 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 83
+[27-Sep-2020 12:53:19 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 12:53:19 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/User.php on line 8
+[27-Sep-2020 12:53:19 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/User.php on line 9
+[27-Sep-2020 12:53:19 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Message.php on line 248
+[27-Sep-2020 12:53:19 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Message.php on line 250
+[27-Sep-2020 12:53:19 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Message.php on line 252
+[27-Sep-2020 12:53:34 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 12:53:34 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/User.php on line 8
+[27-Sep-2020 12:53:34 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/User.php on line 9
+[27-Sep-2020 12:53:34 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 81
+[27-Sep-2020 12:53:34 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 83
+[27-Sep-2020 12:53:39 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 12:53:39 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Trivia_topic.php on line 39
+[27-Sep-2020 12:53:39 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Trivia_topic.php on line 41
+[27-Sep-2020 12:53:45 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 12:53:45 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/User.php on line 8
+[27-Sep-2020 12:53:45 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/User.php on line 9
+[27-Sep-2020 12:53:45 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 81
+[27-Sep-2020 12:53:45 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 83
+[27-Sep-2020 15:53:22 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'fanze8he'@'localhost' (using password: YES) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 15:53:22 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/User.php on line 8
+[27-Sep-2020 15:53:22 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/User.php on line 9
+[27-Sep-2020 15:53:22 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 323
+[27-Sep-2020 15:53:22 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 325
+[27-Sep-2020 15:53:25 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'fanze8he'@'localhost' (using password: YES) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 15:53:25 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/User.php on line 8
+[27-Sep-2020 15:53:25 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/User.php on line 9
+[27-Sep-2020 15:53:25 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 81
+[27-Sep-2020 15:53:25 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 83
+[27-Sep-2020 15:53:36 Asia/Kolkata] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'fanze8he'@'localhost' (using password: YES) in /home1/fanze8he/public_html/config/config.php on line 7
+[27-Sep-2020 15:53:36 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/User.php on line 8
+[27-Sep-2020 15:53:36 Asia/Kolkata] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/User.php on line 9
+[27-Sep-2020 15:53:36 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 81
+[27-Sep-2020 15:53:36 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/classes/Feed.php on line 83

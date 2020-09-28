@@ -1,0 +1,10 @@
+[27-Sep-2020 15:40:05 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 11
+[27-Sep-2020 15:40:05 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 13
+[27-Sep-2020 15:54:36 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 11
+[27-Sep-2020 15:54:36 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 13
+[27-Sep-2020 16:04:15 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 12
+[27-Sep-2020 16:04:15 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 14
+[27-Sep-2020 16:06:26 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 12
+[27-Sep-2020 16:06:26 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 14
+[27-Sep-2020 16:10:18 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 12
+[27-Sep-2020 16:10:18 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home1/fanze8he/public_html/includes/form_handlers/reset_password_handler.php on line 14

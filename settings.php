@@ -13,7 +13,8 @@ include("includes/form_handlers/settings_handler.php");
  	 <h4>Close Account</h4>
  	 <form action="settings.php" method="POST">
  	 	<input type="submit" name="close_account" id="close_account" value="Close Account" class="warning settings_submit">
- 	 </form>
+	  </form>
+	  <div>
  	 <div class="name_column">
  	 <h4>Change Name and Email</h4>
  	 <?php 
@@ -41,6 +42,12 @@ include("includes/form_handlers/settings_handler.php");
  	 	<?php echo $password_message; ?>
  	 	<input type="submit" name="update_password" id="save_password" value="Update Password" class="default settings_submit"><br>
  	 </form>
- 	 </div>
+	  </div>
+	  <div class="about_us">
+		  <a href="privacy_policy.php">Privacy policy</a>
+		  <a href="contact_us.php">Contact us</a>
+		  <a href="about_us.php">About us</a>
+		  <a href="dmca.php">DMCA</a>
+	  </div>
  </div>
 </div>

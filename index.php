@@ -46,7 +46,6 @@ if(isset($_POST['post'])){
 }
 
  ?>
-    
     <div class="trivia_topics column">
         <a href="trivia_topics.php">Trivia topics</a>
         <hr>  

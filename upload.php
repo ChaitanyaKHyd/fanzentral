@@ -28,7 +28,7 @@ if(isset($_FILES['image']['name'])){
 		$ImageType = @explode('/', $_FILES['image']['type']);
 		$type = $ImageType[1]; //file type	
 	//Set Upload directory    
-		$uploaddir = $_SERVER['DOCUMENT_ROOT'].'/project/fanzentral/assets/images/profile_pics';
+		$uploaddir = $_SERVER['DOCUMENT_ROOT'].'/assets/images/profile_pics';
 	//Set File name	
 		$file_temp_name = $profile_id.'_original.'.md5(time()).'n'.$type; //the temp file name
 		$fullpath = $uploaddir."/".$file_temp_name; // the temp file path
@@ -55,7 +55,7 @@ if(isset($_FILES['image']['name'])){
 			$original_width = $original_size[0];
 			$original_height = $original_size[1];	
 		// Specify The new size
-			$main_width = 500; // set the width of the image
+			$main_width = 400; // set the width of the image
 			$main_height = $original_height / ($original_width / $main_width);	// this sets the height in ratio									
 		//create new image using correct php func			
 			if($_FILES["image"]["type"] == "image/gif"){

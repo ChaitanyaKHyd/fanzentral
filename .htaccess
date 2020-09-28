@@ -1,3 +1,9 @@
+Options +FollowSymLinks -MultiViews -indexes
 RewriteEngine On
 RewriteRule ^([a-zA-Z0-9_-]+)$ profile.php?profile_username=$1
 RewriteRule ^([a-zA-Z0-9_-]+)/$ profile.php?profile_username=$1
+
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]

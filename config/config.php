@@ -4,7 +4,7 @@ session_start();
 
 $timezone = date_default_timezone_set("Asia/Kolkata");
 
-$con = mysqli_connect("localhost", "root", "", "fanzentral"); //Connection variable
+$con = mysqli_connect("localhost", "fanze8he_fanze8he", "Chennai325!", "fanze8he_fanzentral"); //Connection variable
 
 if(mysqli_connect_errno()) 
 {
