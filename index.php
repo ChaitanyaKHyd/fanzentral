@@ -46,8 +46,8 @@ if(isset($_POST['post'])){
 }
 
  ?>
-    <div class="trivia_topics column">
-        <a href="trivia_topics.php">Trivia topics</a>
+    <div class="trivia column">
+        <a href="#">Top Trivia</a>
         <hr>  
         <div>
              <?php 
@@ -61,14 +61,16 @@ if(isset($_POST['post'])){
                 $trimmed_trivia =  str_split($trivia, 70);
                 $trimmed_trivia = $trimmed_trivia[0];
 
-                echo "<a href='trivia.php?id=$id'>$trimmed_trivia".$trivia_dot."</a><hr>";
+                echo "<a href='trivia.php?id=$id'>".$trimmed_trivia."".$trivia_dot."</a><hr>";
              }
              ?>
          </div>
     </div>
     <div class="main_column column">
         <form class="post_form" action="index.php" method="POST" enctype="multipart/form-data">
-            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="file" name="fileToUpload" id="fileToUpload" >
+            <input type="button" value="" id="fake-button" />
+            <input type="text" id="fake-label" />
             <textarea name="post_text" id="post_text" placeholder="Upload an image and post something"></textarea>
             <input type="submit" name="post" id="post_button" value="Post"></input>
             <hr>
@@ -80,6 +82,24 @@ if(isset($_POST['post'])){
     </div>
 
     <script>
+
+        // do stuff after page load
+        window.addEventListener("DOMContentLoaded", function()
+        {
+          // bind event listener to the fake button
+          document.getElementById("fake-button").addEventListener("click", function()
+          {
+            // bind event listener to the real button
+            document.getElementById("fileToUpload").addEventListener("change", function()
+            {
+              // extract and place the name of the file into the fake label field
+              document.getElementById("fake-label").value = this.files[0].name;
+            });
+            
+            // simulate a click event on the real button
+            document.getElementById("fileToUpload").click();
+          });
+        });
 
         var userLoggedIn = '<?php echo $userLoggedIn; ?>';
 

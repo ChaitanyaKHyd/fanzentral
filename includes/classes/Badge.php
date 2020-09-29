@@ -25,35 +25,35 @@ class Badge{
 
         if($upvotes>0 && $upvotes<=5){
             $badges_str = "<div class='badges_div tier-1'>
-                                <img src='assets/images/icons/bronze-medal-96.png'>
+                                <img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
                            </div>";
         }elseif($upvotes>6 && $upvotes<=10){
             $badges_str = "<div class='badges_div tier-1'>
-                                <img src='assets/images/icons/silver-medal-96.png'><img src='assets/images/icons/bronze-medal-96.png'>
+                                <img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze medal fan' title='Bronze Medal Fan'>
                            </div>";
         }elseif($upvotes>10 && $upvotes<20){
             $badges_str = "<div class='badges_div tier-1'>
-                                <img src='assets/images/icons/gold-medal-96.png'><img src='assets/images/icons/silver-medal-96.png'><img src='assets/images/icons/bronze-medal-96.png'>
+                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
                            </div>";
         }elseif($upvotes>=20 && $upvotes<30){
             $badges_str = "<div class='badges_div tier-2'>
-                                <img src='assets/images/icons/emerald-96.png'>
-                                <img src='assets/images/icons/gold-medal-96.png'><img src='assets/images/icons/silver-medal-96.png'><img src='assets/images/icons/bronze-medal-96.png'>
+                                <img src='assets/images/icons/emerald-96.png' title='Emerald Fan'>
+                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
                            </div>";
         }elseif($upvotes>=30 && $upvotes<40){
             $badges_str = "<div class='badges_div tier-2'>
-                                <img src='assets/images/icons/sapphire-96.png'><img src='assets/images/icons/emerald-96.png'>
-                                <img src='assets/images/icons/gold-medal-96.png'><img src='assets/images/icons/silver-medal-96.png'><img src='assets/images/icons/bronze-medal-96.png'>
+                                <img src='assets/images/icons/sapphire-96.png' title='Sapphire Fan'><img src='assets/images/icons/emerald-96.png' title='Emerald Fan'>
+                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
                            </div>";
         }elseif($upvotes>=40 && $upvotes<50){
             $badges_str = "<div class='badges_div tier-2'>
-                                <img src='assets/images/icons/ruby-96.png'><img src='assets/images/icons/sapphire-96.png'><img src='assets/images/icons/emerald-96.png'>
-                                <img src='assets/images/icons/gold-medal-96.png'><img src='assets/images/icons/silver-medal-96.png'><img src='assets/images/icons/bronze-medal-96.png'>
+                                <img src='assets/images/icons/ruby-96.png' title='Ruby Fan'><img src='assets/images/icons/sapphire-96.png' title='Sapphire Fan'><img src='assets/images/icons/emerald-96.png' title='Emerald Fan'>
+                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
                            </div>";
         }elseif($upvotes>=50){
             $badges_str = "<div class='badges_div tier-2'>
-                                <img src='assets/images/icons/diamond-96.png'><img src='assets/images/icons/ruby-96.png'><img src='assets/images/icons/sapphire-96.png'><img src='assets/images/icons/emerald-96.png'>
-                                <img src='assets/images/icons/gold-medal-96.png'><img src='assets/images/icons/silver-medal-96.png'><img src='assets/images/icons/bronze-medal-96.png'>
+                                <img src='assets/images/icons/diamond-96.png' title='Diamond Fan'><img src='assets/images/icons/ruby-96.png' title='Ruby Fan'><img src='assets/images/icons/sapphire-96.png' title='Sapphire Fan'><img src='assets/images/icons/emerald-96.png' title='Emerald Fan'>
+                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
                            </div>";
         }
     return $badges_str;

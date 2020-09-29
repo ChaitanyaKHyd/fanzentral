@@ -34,7 +34,34 @@ if(isset($_POST['trivia_post'])){
 
  ?>
 
-    <div class="container">
+    <div class="container" style="height: 0;width: auto;">
+
+    <div class="trivia_topics column">
+        <a href="trivia_topics.php">Trivia topics</a>
+        <hr>  
+        <div>
+             <?php 
+             $query = mysqli_query($con, "SELECT * FROM trivia WHERE deleted ='no' ORDER BY upvotes DESC");
+             $unique_topic = array();
+             foreach($query as $row){
+                $topic_id = $row['trivia_topic_id'];
+                if(!in_array($topic_id, $unique_topic)){
+                $trivia_topic = $row['trivia_topic'];
+                $topic_query = mysqli_query($con, "SELECT description FROM trivia_topics WHERE id='$topic_id' LIMIT 10");
+                $description_row = mysqli_fetch_array($topic_query);
+                $description = $description_row['description'];
+                array_push($unique_topic, $topic_id);
+
+                echo "<a href='trivia_page.php?id=$topic_id'>".$trivia_topic."</a>
+                      <p>".$description."</p><hr>";
+             }else{
+
+             }
+             }
+
+             ?>
+         </div>
+    </div>
 
     <div class="main_trivia_column column">
 
