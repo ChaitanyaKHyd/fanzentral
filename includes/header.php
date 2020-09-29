@@ -103,6 +103,7 @@ else{
 	</div>
 
 	<script>
+        $('.alert').alert();
         var userLoggedIn = '<?php echo $userLoggedIn; ?>';
 
         $(document).ready(function() {

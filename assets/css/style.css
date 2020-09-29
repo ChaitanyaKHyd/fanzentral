@@ -308,7 +308,7 @@ textarea:focus {
 	margin-right: 20px;
 }
 
-.profile_left img {
+.profile_left .profile_img {
 	min-width: 80px;
 	width: 55%;
 	margin: 20px;
@@ -335,7 +335,7 @@ textarea:focus {
 	background-color: #f0ad4e;
 }
 .default {
-	background-color: #bdc3c7;
+	background-color: #000;
 }
 .success {
 	background-color: #2ecc71;
@@ -885,10 +885,29 @@ input.image{
 
 .about_us{
     position: absolute;
-    top: 450px;
+    top: 420px;
 }
 
 .about_us a{
 	display: inline;
     padding: 10px;
+}
+
+.badges_div img{
+    padding: 5px;
+    width: 48px;
+	height: auto;
+	display: inline-block;
+}
+
+.tier-1{
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+}
+
+.tier-2{
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
 }
