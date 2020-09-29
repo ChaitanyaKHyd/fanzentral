@@ -165,33 +165,55 @@ $num_rows = mysqli_num_rows($check_query_upvoted);
 
 if($num_rows > 0){
 
-	echo '<form action="vote.php?id='.$id.'"method="POST">
+	echo($total_upvotes==1)? '<form action="vote.php?id='.$id.'"method="POST">
 
-			<input type="submit" class="comment_vote" name="downvote_button" value="Remove Upvote">
+								<input type="submit" class="comment_vote" name="downvote_button" value="Remove Upvote">
 
-			<div class="upvote_value">
+								<div class="upvote_value">
 
-			'.$total_upvotes.' Upvotes
+								'.$total_upvotes.' Upvote
 
-			</div>
+								</div>
 
-			</form>';
+								</form>':'
+								<form action="vote.php?id='.$id.'"method="POST">
+
+								<input type="submit" class="comment_vote" name="downvote_button" value="Remove Upvote">
+
+								<div class="upvote_value">
+
+								'.$total_upvotes.' Upvotes
+
+								</div>
+
+								</form>';
 
 }
 
 else{
 
-	echo '<form action="vote.php?id='.$id.'"method="POST">
+	echo($total_upvotes==1)? '<form action="vote.php?id='.$id.'"method="POST">
 
-			<input type="submit" class="comment_vote" name="upvote_button" value="Upvote">
+								<input type="submit" class="comment_vote" name="upvote_button" value="Upvote">
 
-			<div class="upvote_value">
+								<div class="upvote_value">
 
-			'.$total_upvotes.' Upvotes
+								'.$total_upvotes.' Upvote
 
-			</div>
+								</div>
 
-			</form>';
+								</form>':'
+								<form action="vote.php?id='.$id.'"method="POST">
+
+								<input type="submit" class="comment_vote" name="upvote_button" value="Upvote">
+
+								<div class="upvote_value">
+
+								'.$total_upvotes.' Upvotes
+
+								</div>
+
+								</form>';
 
 }
 

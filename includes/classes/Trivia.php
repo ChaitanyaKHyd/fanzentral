@@ -106,12 +106,17 @@ class Trivia{
 
 		$trivia_id = $data['id'];
 
+		$order = $data['order'];
+
 
 
 		$str = ""; //String to return
 
+		if($order=="new"){
 		$data_query = mysqli_query($this->con,"SELECT * FROM trivia WHERE deleted='no' AND trivia_topic_id='$trivia_id'  ORDER BY id DESC");
-
+		}elseif($order=="top") {
+		$data_query = mysqli_query($this->con,"SELECT * FROM trivia WHERE deleted='no' AND trivia_topic_id='$trivia_id'  ORDER BY upvotes DESC");	
+		}
 
 
 		if(mysqli_num_rows($data_query)>0){
