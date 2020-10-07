@@ -34,7 +34,7 @@ if(isset($_POST['trivia_post'])){
 
  ?>
 
-    <div class="container" style="height: 0;width: auto;">
+    <div style="height: 0;width: auto;">
 
     <div class="trivia_topics column">
         <a href="trivia_topics.php">Trivia topics</a>
@@ -46,16 +46,16 @@ if(isset($_POST['trivia_post'])){
              foreach($query as $row){
                 $topic_id = $row['trivia_topic_id'];
                 if(!in_array($topic_id, $unique_topic)){
-                $trivia_topic = $row['trivia_topic'];
+                $trivia_topic_2 = $row['trivia_topic'];
                 $topic_query = mysqli_query($con, "SELECT description FROM trivia_topics WHERE id='$topic_id' LIMIT 10");
                 $description_row = mysqli_fetch_array($topic_query);
                 $description = $description_row['description'];
                 array_push($unique_topic, $topic_id);
 
-                echo "<a href='trivia_page.php?id=$topic_id'>".$trivia_topic."</a>
+                echo "<a href='trivia_page.php?id=$topic_id'>".$trivia_topic_2."</a>
                       <p>".$description."</p><hr>";
              }else{
-
+                continue;
              }
              }
 
@@ -85,7 +85,7 @@ if(isset($_POST['trivia_post'])){
 
           <input type="submit" name="trivia_post" id="post_button" value="Post">
 
-          <input style="color:black;font-size:12pt;font-style:italic;display:block;border:none;" readonly type="text" id='length' name="length" size="3" maxlength="3" value="280">
+          <input style="color:black;font-size:12pt;font-style:italic;display:none;border:none;" readonly type="text" id='length' name="length" size="3" maxlength="3" value="280">
           
           <hr>
 
@@ -116,6 +116,8 @@ if(isset($_POST['trivia_post'])){
           let maxLength = el.maxLength
 
           let currentLength = el.value.length
+
+          document.getElementById('length').style.display = "block";
 
           document.getElementById(counterId).value = maxLength - currentLength;
 

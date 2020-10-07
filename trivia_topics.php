@@ -20,15 +20,15 @@ if(isset($_POST['post'])){
 
 	<div class="container">
 
-		<div class="main_trivia_column column">
+		<div class="main_trivia_topics_column column">
 
-        <form class="post_form_trivia" action="trivia_topics.php" method="POST">
+        <form class="post_form_trivia_topics" action="trivia_topics.php" method="POST">
 
         	<input type="text" name="trivia_topic_create" placeholder="Trivia Topic" required>
 
-            <select name="category">
+            <select name="category" required>
 
-                <option selected="selected">Choose one</option>
+                <option disabled>Choose one</option>
 
                 <?php
 
@@ -56,7 +56,7 @@ if(isset($_POST['post'])){
 
             <br><br>
 
-            <textarea name="trivia_topic_description"  placeholder="Give a description of trivia topic"></textarea>
+            <textarea name="trivia_topic_description"  placeholder="Give a description of trivia topic" required></textarea>
 
             <input type="submit" name="post" id="post_button" value="Create"></input>
 

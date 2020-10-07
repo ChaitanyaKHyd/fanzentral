@@ -138,7 +138,7 @@ if(isset($_POST['respond_request'])){
 
 
 
-    	<input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post something">
+    	<input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post something" style="background: darkcyan;">
 
 
 
