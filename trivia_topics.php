@@ -12,12 +12,10 @@ if(isset($_POST['post'])){
 
     $topic->submitTriviaTopic($_POST['trivia_topic_create'], $_POST['trivia_topic_description'], $_POST['category']);
 
-    echo '<h3 style="text-align:center;" class="alert alert-success alert-dismissible fade show">Topic created!</h3>';
-
 }
 
 ?>
-
+    <div class="wrapper_2">
 	<div class="container">
 
 		<div class="main_trivia_topics_column column">
@@ -26,7 +24,7 @@ if(isset($_POST['post'])){
 
         	<input type="text" name="trivia_topic_create" placeholder="Trivia Topic" required>
 
-            <select name="category" required>
+            <select name="category" class="category" required>
 
                 <option disabled>Choose one</option>
 
@@ -98,12 +96,12 @@ if(isset($_POST['post'])){
 
     <div class ="trivia_topics_area row"></div>
 
-    <p style='text-align:center;'>No more topics to show!</p>
+    <p style='text-align:center; min-width: 320px;'>No more topics to show!</p>
 
     	<img id="loading" src="assets/images/icons/loading.gif" style="display: block; margin: auto;">
 
     </div>
-
+    </div>
 	<script>
 
         $(document).ready(function() {

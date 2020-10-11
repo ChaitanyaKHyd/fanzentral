@@ -18,6 +18,7 @@ else{
 ?>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>FanZentral</title>
 	<!--Javascript-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -45,7 +46,8 @@ else{
 <body>
 	<div class="top_bar">
 		<div class="logo">
-			<a href="index.php">FanZentral.net</a>
+			<a class="desktop" href="index.php"><span>FanZentral.net</span></a>
+      <a class="mobile" href="index.php"><span>Fz</span></a>
 		</div>
     <div class="search">
       <form action="search.php" method="GET" name="search_form">
@@ -98,12 +100,33 @@ else{
   			<a href="settings.php"><i class="fas fa-cog"></i></a>
   			<a href="includes/handlers/logout.php"><i class="fas fa-sign-out-alt"></i></a>
 		</nav>
+    </div>
+    <div class="mobile_menu"><span style="font-size:24px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span></div>
+    <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a href="<?php echo $userLoggedIn; ?>"><?php echo $user['first_name']; ?></a>
+        <a href="trivia_topics.php">Trivia Topics</a>
+        <a href="top_trivia.php">Top Trivia</a>
+        <a href="messages.php"<?php echo $num_messages>0?"style=color:red;":""; ?>><i class="fas fa-inbox"></i><?php echo $num_messages; ?>Messages</a>
+        <a href="notifications.php"<?php echo $num_notifications>0?"style=color:red;":""; ?>><i class="fas fa-bell"></i><?php echo $num_notifications; ?>Notifications</a>
+        <a href="requests.php"<?php echo $num_requests>0?"style=color:red;":""; ?>><i class="fas fa-user-friends"></i><?php echo $num_requests; ?>Friend Requests</a>
+        <a href="settings.php"><i class="fas fa-cog"></i>Settings</a>
+        <a href="includes/handlers/logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+      </div>
+    </div>
 		<div class="dropdown_data_window" style="height:0px; border:none;" ></div>
 		<input type="hidden"  id="dropdown_data_type" value ="">
 	</div>
-
 	<script>
-        $('.alert').alert();
+
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
         var userLoggedIn = '<?php echo $userLoggedIn; ?>';
 
         $(document).ready(function() {
