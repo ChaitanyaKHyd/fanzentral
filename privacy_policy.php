@@ -1,7 +1,7 @@
 <?php
 include("includes/header.php");
 ?>
-
+<div class="wrapper_3">
 <h2>Privacy Policy for FanZentral</h2>
 <p>At FanZentral, accessible from www.fanzentral.net, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by FanZentral and how we use it.</p>
 <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to Contact through email at <b>info@fanzentral.net</b></p>
@@ -25,3 +25,4 @@ include("includes/header.php");
 <p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in FanZentral. This policy is not applicable to any information collected offline or via channels other than this website.</p>
 <h2>Consent</h2>
 <p>By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.</p>
+</div>

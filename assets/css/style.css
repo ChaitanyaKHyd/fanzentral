@@ -1179,6 +1179,10 @@ input.image{
 		width: 0px;
 	}
 
+	.wrapper_3{
+		width: 768px;
+	}
+
 
 	.logo .mobile{
 		display: block;
@@ -1297,6 +1301,10 @@ input.image{
     	left: 1px;
 	}
 
+	.wrapper_3{
+		width: 425px;
+	}
+
 	.trivia_top_page{
 		min-width: 425px;
 	}
@@ -1364,6 +1372,10 @@ input.image{
 	    min-height: 170px;
 	    position: absolute;
     	left: 1px;
+	}
+
+	.wrapper_3{
+		width: 375px;
 	}
 
 	.trivia_top_page{
@@ -1441,6 +1453,10 @@ input.image{
 	    min-height: 170px;
 	    position: absolute;
     	left: 1px;
+	}
+
+	.wrapper_3{
+		width: 320px;
 	}
 
 	.trivia_top_page{
