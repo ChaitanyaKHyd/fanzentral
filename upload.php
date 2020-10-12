@@ -55,7 +55,7 @@ if(isset($_FILES['image']['name'])){
 			$original_width = $original_size[0];
 			$original_height = $original_size[1];	
 		// Specify The new size
-			$main_width = 400; // set the width of the image
+			$main_width = 500; // set the width of the image
 			$main_height = $original_height / ($original_width / $main_width);	// this sets the height in ratio									
 		//create new image using correct php func			
 			if($_FILES["image"]["type"] == "image/gif"){
@@ -173,13 +173,13 @@ if (isset($_POST['x'])){
 	    	$('#Overlay').show();
 			$('#formExample').hide();
 	    </script>
-	    <div id="CroppingContainer" style="width:800px; max-height:600px; background-color:#FFF; margin-left: -200px; position:relative; overflow:hidden; border:2px #666 solid; z-index:2001; padding-bottom:0px;">  
+	    <div id="CroppingContainer">  
 	    
-	        <div id="CroppingArea" style="width:500px; max-height:400px; position:relative; overflow:hidden; margin:40px 0px 40px 40px; border:2px #666 solid; float:left;">	
-	            <img src="<?=$imgSrc?>" border="0" id="jcrop_target" style="border:0px #990000 solid; position:relative; margin:0px 0px 0px 0px; padding:0px; " />
+	        <div id="CroppingArea">	
+	            <img src="<?=$imgSrc?>" border="0" id="jcrop_target"/>
 	        </div>  
 
-	        <div id="InfoArea" style="width:180px; height:150px; position:relative; overflow:hidden; margin:40px 0px 0px 40px; border:0px #666 solid; float:left;">	
+	        <div id="InfoArea">	
 	           <p style="margin:0px; padding:0px; color:#444; font-size:18px;">          
 	                <b>Crop Profile Image</b><br /><br />
 	                <span style="font-size:14px;">
@@ -192,7 +192,7 @@ if (isset($_POST['x'])){
 
 	        <br />
 
-	        <div id="CropImageForm" style="width:100px; height:30px; float:left; margin:10px 0px 0px 40px;" >  
+	        <div id="CropImageForm" >  
 	            <form action="upload.php" method="post" onsubmit="return checkCoords();">
 	                <input type="hidden" id="x" name="x" />
 	                <input type="hidden" id="y" name="y" />
@@ -204,7 +204,7 @@ if (isset($_POST['x'])){
 	            </form>
 	        </div>
 
-	        <div id="CropImageForm2" style="width:100px; height:30px; float:left; margin:10px 0px 0px 40px;" >  
+	        <div id="CropImageForm2">  
 	            <form action="upload.php" method="post" onsubmit="return cancelCrop();">
 	                <input type="submit" value="Cancel Crop" style="width:100px; height:30px;"   />
 	            </form>
@@ -227,4 +227,4 @@ if (isset($_POST['x'])){
  <?php } ?>
  
  
-    <br /><br />
+    <br/><br/>

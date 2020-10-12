@@ -9,7 +9,8 @@ include("includes/form_handlers/settings_handler.php");
  	echo "<img src='".$user['profile_pic']."' class='small_profile_pic'>";
  	 ?>
  	 <br>
- 	 <a href="upload.php">Upload new profile picture</a><br><br><br>
+ 	 <a href="upload.php" class="pc">Upload new profile picture</a><br><br><br>
+ 	 <a href="upload_2.php" class="mob">Upload new profile picture</a><br><br><br>
  	 <h4>Close Account</h4>
  	 <form action="settings.php" method="POST">
  	 	<input type="submit" name="close_account" id="close_account" value="Close Account" class="warning settings_submit">

@@ -43,7 +43,8 @@ else{
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-	<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">	
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet">	
 
 </head>
 
@@ -53,7 +54,7 @@ else{
 
 	*{
 
-		font-family: 'Ubuntu', sans-serif;
+		font-family: 'Hind', 'Ubuntu', sans-serif;
 
 	}
 
