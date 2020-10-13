@@ -1129,6 +1129,10 @@ input.image{
 	    min-width: 768px;
 	}
 
+	.main_trivia_topics_column{
+		min-width: 768px;
+	}
+
 	.dropdown{
 		top:-80px;
 	}
@@ -1361,6 +1365,20 @@ input.image{
 	  font-size: 60px;
 	}
 
+	.post_form_trivia_topics input[type="submit"] {
+	    width: 25%;
+	    height: 60px;
+	    border: none;
+	    border-radius: 5px;
+	    background-color: #000000;
+	    color: #ffffff;
+	    position: relative;
+	    top: 10px;
+	    left: 0px;
+	    outline: 0;
+	    margin: 0;
+	}
+
 
 }
 
@@ -1374,6 +1392,10 @@ input.image{
 	    min-height: 170px;
 	    position: absolute;
     	left: 1px;
+	}
+
+	.wrapper_2{
+		width: 0px;
 	}
 
 	.wrapper_3{
@@ -1434,6 +1456,24 @@ input.image{
 		min-width: 425px;
 	}
 
+	.main_trivia_topics_column{
+		min-width: 425px;
+	}
+
+	.post_form_trivia_topics input[type="submit"] {
+	    width: 25%;
+	    height: 60px;
+	    border: none;
+	    border-radius: 5px;
+	    background-color: #000000;
+	    color: #ffffff;
+	    position: relative;
+	    top: 10px;
+	    left: 0px;
+	    outline: 0;
+	    margin: 0;
+	}
+
 }
 
 
@@ -1447,6 +1487,10 @@ input.image{
 	    min-height: 170px;
 	    position: absolute;
     	left: 1px;
+	}
+
+	.wrapper_2{
+		width: 0px;
 	}
 
 	.wrapper_3{
@@ -1516,6 +1560,29 @@ input.image{
 		min-width: 375px;
 	}
 
+	.main_trivia_topics_column{
+		min-width: 375px;
+	}
+
+	.main_trivia_topics_column textarea {
+	    width: 300px;
+	    height: 60px;
+	}
+
+	.post_form_trivia_topics input[type="submit"] {
+	    width: 25%;
+	    height: 60px;
+	    border: none;
+	    border-radius: 5px;
+	    background-color: #000000;
+	    color: #ffffff;
+	    position: relative;
+	    top: 10px;
+	    left: 0px;
+	    outline: 0;
+	    margin: 0;
+	}
+
 }
 
 @media screen and (max-width: 320px){
@@ -1528,6 +1595,10 @@ input.image{
 	    min-height: 170px;
 	    position: absolute;
     	left: 1px;
+	}
+
+	.wrapper_2{
+		width: 0px;
 	}
 
 	.wrapper_3{
@@ -1629,7 +1700,7 @@ input.image{
 	}
 
 	.dropdown{
-		top:-110px;
+		top:-10px;
 	}
 
 	.single_trivia_topic{

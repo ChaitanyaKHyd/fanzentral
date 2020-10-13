@@ -22,38 +22,44 @@ class Badge{
         $row = mysqli_fetch_array($check_query);
 
         $upvotes = $row['num_upvotes'];
-
+        ?>
+        <script>
+            $(document).ready(function(){
+              $('[data-toggle="popover"]').popover();
+            });
+        </script>
+        <?php
         if($upvotes>0 && $upvotes<=5){
             $badges_str = "<div class='badges_div tier-1'>
-                                <img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
+                                <img data-toggle='popover' title='Bronze Medal Fan' data-content='Has atleast 5 upvotes' src='assets/images/icons/bronze-medal-96.png'>
                            </div>";
-        }elseif($upvotes>6 && $upvotes<=10){
+        }elseif($upvotes>5 && $upvotes<=10){
             $badges_str = "<div class='badges_div tier-1'>
-                                <img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze medal fan' title='Bronze Medal Fan'>
+                                <img data-toggle='popover' title='Silver Medal Fan' data-content='Has between 6 and 10 upvotes' src='assets/images/icons/silver-medal-96.png'><img data-toggle='popover' title='Bronze Medal Fan' data-content='Has atleast 5 upvotes' src='assets/images/icons/bronze-medal-96.png'>
                            </div>";
         }elseif($upvotes>10 && $upvotes<20){
             $badges_str = "<div class='badges_div tier-1'>
-                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
+                                <img data-toggle='popover' title='Gold Medal Fan' data-content='Has between 11 and 19 upvotes' src='assets/images/icons/gold-medal-96.png'><img data-toggle='popover' title='Silver Medal Fan' data-content='Has between 6 and 10 upvotes' src='assets/images/icons/silver-medal-96.png'><img data-toggle='popover' title='Bronze Medal Fan' data-content='Has atleast 5 upvotes' src='assets/images/icons/bronze-medal-96.png'>
                            </div>";
         }elseif($upvotes>=20 && $upvotes<30){
             $badges_str = "<div class='badges_div tier-2'>
-                                <img src='assets/images/icons/emerald-96.png' title='Emerald Fan'>
-                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
+                                <img data-toggle='popover' title='Emerald Fan' data-content='Has between 20 and 29 upvotes' src='assets/images/icons/emerald-96.png'>
+                                <img data-toggle='popover' title='Gold Medal Fan' data-content='Has between 11 and 19 upvotes' src='assets/images/icons/gold-medal-96.png'><img data-toggle='popover' title='Silver Medal Fan' data-content='Has between 6 and 10 upvotes' src='assets/images/icons/silver-medal-96.png'><img data-toggle='popover' title='Bronze Medal Fan' data-content='Has atleast 5 upvotes' src='assets/images/icons/bronze-medal-96.png'>
                            </div>";
         }elseif($upvotes>=30 && $upvotes<40){
             $badges_str = "<div class='badges_div tier-2'>
-                                <img src='assets/images/icons/sapphire-96.png' title='Sapphire Fan'><img src='assets/images/icons/emerald-96.png' title='Emerald Fan'>
-                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
+                                <img data-toggle='popover' title='Sapphire Fan' data-content='Has between 30 and 39 upvotes' src='assets/images/icons/sapphire-96.png'><img data-toggle='popover' title='Emerald Fan' data-content='Has between 20 and 29 upvotes' src='assets/images/icons/emerald-96.png'>
+                                <img data-toggle='popover' title='Gold Medal Fan' data-content='Has between 11 and 19 upvotes' src='assets/images/icons/gold-medal-96.png'><img data-toggle='popover' title='Silver Medal Fan' data-content='Has between 6 and 10 upvotes' src='assets/images/icons/silver-medal-96.png'><img data-toggle='popover' title='Bronze Medal Fan' data-content='Has atleast 5 upvotes' src='assets/images/icons/bronze-medal-96.png'>
                            </div>";
         }elseif($upvotes>=40 && $upvotes<50){
             $badges_str = "<div class='badges_div tier-2'>
-                                <img src='assets/images/icons/ruby-96.png' title='Ruby Fan'><img src='assets/images/icons/sapphire-96.png' title='Sapphire Fan'><img src='assets/images/icons/emerald-96.png' title='Emerald Fan'>
-                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
+                                <img data-toggle='popover' title='Ruby Fan' data-content='Has between 40 and 49 upvotes' src='assets/images/icons/ruby-96.png'><img data-toggle='popover' title='Sapphire Fan' data-content='Has between 30 and 39 upvotes' src='assets/images/icons/sapphire-96.png'><img data-toggle='popover' title='Emerald Fan' data-content='Has between 20 and 29 upvotes' src='assets/images/icons/emerald-96.png'>
+                                <img data-toggle='popover' title='Gold Medal Fan' data-content='Has between 11 and 19 upvotes' src='assets/images/icons/gold-medal-96.png'><img data-toggle='popover' title='Silver Medal Fan' data-content='Has between 6 and 10 upvotes' src='assets/images/icons/silver-medal-96.png'><img data-toggle='popover' title='Bronze Medal Fan' data-content='Has atleast 5 upvotes' src='assets/images/icons/bronze-medal-96.png'>
                            </div>";
         }elseif($upvotes>=50){
             $badges_str = "<div class='badges_div tier-2'>
-                                <img src='assets/images/icons/diamond-96.png' title='Diamond Fan'><img src='assets/images/icons/ruby-96.png' title='Ruby Fan'><img src='assets/images/icons/sapphire-96.png' title='Sapphire Fan'><img src='assets/images/icons/emerald-96.png' title='Emerald Fan'>
-                                <img src='assets/images/icons/gold-medal-96.png' title='Gold Medal Fan'><img src='assets/images/icons/silver-medal-96.png' title='Silver Medal Fan'><img src='assets/images/icons/bronze-medal-96.png' title='Bronze Medal Fan'>
+                                <img data-toggle='popover' title='Diamond Fan' data-content='Has more than 50 upvotes' src='assets/images/icons/diamond-96.png'><img data-toggle='popover' title='Ruby Fan' data-content='Has between 40 and 49 upvotes' src='assets/images/icons/ruby-96.png'><img data-toggle='popover' title='Sapphire Fan' data-content='Has between 30 and 39 upvotes' src='assets/images/icons/sapphire-96.png'><img data-toggle='popover' title='Emerald Fan' data-content='Has between 20 and 29 upvotes' src='assets/images/icons/emerald-96.png'>
+                                <img data-toggle='popover' title='Gold Medal Fan' data-content='Has between 11 and 19 upvotes' src='assets/images/icons/gold-medal-96.png'><img data-toggle='popover' title='Silver Medal Fan' data-content='Has between 6 and 10 upvotes' src='assets/images/icons/silver-medal-96.png'><img data-toggle='popover' title='Bronze Medal Fan' data-content='Has atleast 5 upvotes' src='assets/images/icons/bronze-medal-96.png'>
                            </div>";
         }
     return $badges_str;

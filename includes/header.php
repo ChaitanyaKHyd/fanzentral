@@ -110,9 +110,9 @@ else{
         <a href="<?php echo $userLoggedIn; ?>"><?php echo $user['first_name']; ?></a>
         <a href="trivia_topics.php">Trivia Topics</a>
         <a href="top_trivia.php">Top Trivia</a>
-        <a href="messages.php"<?php echo $num_messages>0?"style=color:red;":""; ?>><i class="fas fa-inbox"></i><?php echo $num_messages; ?>Messages</a>
-        <a href="notifications.php"<?php echo $num_notifications>0?"style=color:red;":""; ?>><i class="fas fa-bell"></i><?php echo $num_notifications; ?>Notifications</a>
-        <a href="requests.php"<?php echo $num_requests>0?"style=color:red;":""; ?>><i class="fas fa-user-friends"></i><?php echo $num_requests; ?>Friend Requests</a>
+        <a href="messages.php"<?php echo $num_messages>0?"style=color:red;":""; ?>><i class="fas fa-inbox"></i>(<?php echo $num_messages; ?>)Messages</a>
+        <a href="notifications.php"<?php echo $num_notifications>0?"style=color:red;":""; ?>><i class="fas fa-bell"></i>(<?php echo $num_notifications; ?>)Notifications</a>
+        <a href="requests.php"<?php echo $num_requests>0?"style=color:red;":""; ?>><i class="fas fa-user-friends"></i>(<?php echo $num_requests; ?>)Friend Requests</a>
         <a href="settings.php"><i class="fas fa-cog"></i>Settings</a>
         <a href="includes/handlers/logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
       </div>
