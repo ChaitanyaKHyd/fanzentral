@@ -1145,7 +1145,9 @@ input.image{
 	    height: 10%;
 	    position: fixed;
 	    left: 0px;
-	    border-right: 10px solid #D3D3D3;
+	    background-color: #000;
+	    border-bottom-right-radius:10px;
+	    border-bottom-left-radius: 10px;
 	    margin-right: 20px;
 	}
 
@@ -1279,7 +1281,7 @@ input.image{
 	}
 
 	.profile_main_column{
-		top: 80px;
+		top: 100px;
 		left: 0;
 		min-width: 768px;
 	}
@@ -1407,7 +1409,7 @@ input.image{
 	}
 
 	.profile_main_column{
-		top:80px;
+		top:100px;
 		left: 0;
 		min-width: 425px;
 	}
@@ -1511,7 +1513,7 @@ input.image{
 	}
 
 	.profile_main_column{
-		top:80px;
+		top:100px;
 		left: 0;
 		min-width: 375px;
 	}
@@ -1619,7 +1621,7 @@ input.image{
 	}
 
 	.profile_main_column{
-		top:80px;
+		top:100px;
 		left: 0;
 		min-width: 320px;
 	}
